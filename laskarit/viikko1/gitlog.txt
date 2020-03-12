@@ -1,0 +1,68 @@
+
+commit 64b95246e2eed7cfe9ed3be3e5cb89c547ef63b6
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Thu Mar 12 19:40:22 2020 +0200
+
+    Poistettu file1, uudelleennimetty file2->file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit bbf95a40680811aa26eae710e0bc0144902e35f5
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Thu Mar 12 19:36:58 2020 +0200
+
+    Lisätty kolme tiedostoa uuteen kansioon
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 5b19c4e1cb62b20a0f941ceece3b3d6baca16bb4
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Thu Mar 12 19:27:29 2020 +0200
+
+    Uudelleennimeäminen
+
+ eka.txt => tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 96816ef779755590ccfcb8998a14aadb79aba282
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Wed Mar 11 22:35:46 2020 +0200
+
+    muutokset hyväksytty yksi kerrallaan
+
+ eka.txt  | 7 ++++++-
+ toka.txt | 3 ---
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+commit 84aae76a5bf26c9fd8917e1780466c5b388bda20
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Wed Mar 11 22:33:34 2020 +0200
+
+    muokattu molempia
+
+ eka.txt  | 3 +++
+ toka.txt | 4 +++-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit 1b5868219275ea740a682047eb7bbf427d3ec97c
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Wed Mar 11 22:32:48 2020 +0200
+
+    lisätty toka
+
+ toka.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit d8ad9ca61a5fdb432862724918b4c51a456a9238
+Author: Henri Nikku <henrinikku1@gmail.com>
+Date:   Wed Mar 11 22:28:36 2020 +0200
+
+    lisätty eka.txt
+
+ eka.txt | 1 +
+ 1 file changed, 1 insertion(+)
