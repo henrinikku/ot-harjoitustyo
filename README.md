@@ -2,7 +2,7 @@
 
 ## Tehtävät
 
-### Viikko 1 :white_check_mark:
+### Viikko 1
 
 - [gitlog.txt](laskarit/viikko1/gitlog.txt)
 - [komentorivi.txt](laskarit/viikko1/komentorivi.txt)
