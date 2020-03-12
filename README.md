@@ -1,7 +1,7 @@
-# Ohjelmistotekniikka 2020
+# Ohjelmistotekniikka 2020, harjoitustyö :sunglasses: :100: :fire: :fire: 
 
-Tekstiä.
+## Tehtävät
 
-_Kursivoitua tekstiä._
-
-**Lihavoitua tekstiä.**
+### Viikko 1
+* [gitlog.txt](laskarit/viikko1/gitlog.txt)
+* [komentorivi.txt](laskarit/viikko1/komentorivi.txt)
