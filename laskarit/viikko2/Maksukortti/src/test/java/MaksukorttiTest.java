@@ -15,14 +15,6 @@ public class MaksukorttiTest {
         kortti = new Maksukortti(10);
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Test
     public void hello() {
     }
