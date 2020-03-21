@@ -9,3 +9,4 @@
 
 ### Viikko 2
 - [laskarit, osa 1](laskarit/viikko2/Maksukortti)
+- [laskarit, osa 2](laskarit/viikko2/Unicafe)
