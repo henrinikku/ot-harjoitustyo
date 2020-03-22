@@ -9,5 +9,5 @@
 - [komentorivi.txt](laskarit/viikko1/komentorivi.txt)
 
 ### Viikko 2
-- [laskarit, osa 1](laskarit/viikko2/Maksukortti)
-- [laskarit, osa 2](laskarit/viikko2/Unicafe)
+- [Maksukortti](laskarit/viikko2/Maksukortti)
+- [Unicafe](laskarit/viikko2/Unicafe)
