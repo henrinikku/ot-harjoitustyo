@@ -1,7 +1,7 @@
 # Ohjelmistotekniikka (kevät 2020), harjoitustyö :sunglasses: :100: :fire: :fire:
 ## Projekti
 - [FlashCardApp](FlashCardApp/)
-- [vaatimusmäärittely](FlashCardApp/dokumentaatio/vaatimusmaarittely.md)
+- [vaatimusmäärittely](FlashCardApp/dokumentointi/vaatimusmaarittely.md)
 
 ## Laskarit
 ### Viikko 1
