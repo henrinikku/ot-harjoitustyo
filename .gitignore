@@ -5,3 +5,5 @@
 /laskarit/viikko2/Unicafe/.idea/
 
 /FlashCardApp/target
+
+*.DS_Store
