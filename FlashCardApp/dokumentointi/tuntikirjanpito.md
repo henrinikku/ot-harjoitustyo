@@ -4,3 +4,4 @@
 | :---: | :---- | :------------------------------------- |
 | 22.3. | 1h    | aiheen päättäminen, vaatimusmäärittely |
 | 26.3. | 30min | projektin luominen                     |
+| 27.3. | 30min | java-kirjastojen googlailu             |
