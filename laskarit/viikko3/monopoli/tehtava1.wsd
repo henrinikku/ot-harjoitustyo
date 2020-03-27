@@ -1,0 +1,18 @@
+@startuml tehtava1
+
+object Peli
+object Noppa
+object Pelaaja 
+object Pelinappula
+object Lauta
+object Ruutu
+
+Peli "1" -- "2" Noppa
+Peli "1" -- "2..8" Pelaaja
+Peli "1" -- "1" Lauta
+Pelaaja "1" -- "1" Pelinappula
+Lauta "1" -- "40" Ruutu
+Ruutu "1" -- "1" Ruutu
+Pelinappula "0..8" -- "1" Ruutu
+
+@enduml
