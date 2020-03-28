@@ -2,7 +2,9 @@
 /laskarit/viikko2/Maksukortti/target/
 /laskarit/viikko2/Unicafe/target/
 /laskarit/viikko2/Unicafe/.idea/
+
 /FlashCardApp/target
+/FlashCardApp/data
 
 *.DS_Store
 *.iml
