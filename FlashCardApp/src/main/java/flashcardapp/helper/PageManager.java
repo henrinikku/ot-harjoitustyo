@@ -5,7 +5,7 @@ import java.net.URL;
 public class PageManager {
 
     public static URL mainPage() {
-        return getPathFor("fxml/Main.fxml");
+        return getPathFor("fxml/Login.fxml");
     }
 
     private static URL getPathFor(String path) {
