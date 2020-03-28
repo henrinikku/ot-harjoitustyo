@@ -7,35 +7,32 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 import static flashcardapp.helper.PageManager.*;
 
+@EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 @Component
 public class FlashCardUi extends Application {
     private ConfigurableApplicationContext applicationContext;
 
     @Override
     public void init() {
-        String[] args = getParameters().getRaw().toArray(new String[0]);
-        applicationContext =
-            new SpringApplicationBuilder().sources(Main.class).run(args);
+        applicationContext = new ClassPathXmlApplicationContext(
+            new String[]{"spring-config.xml"}
+        );
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(mainPage());
+        FXMLLoader loader = new FXMLLoader(loginView());
         loader.setControllerFactory(applicationContext::getBean);
 
         Parent root = loader.load();
