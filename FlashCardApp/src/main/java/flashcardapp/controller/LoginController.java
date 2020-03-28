@@ -1,6 +1,8 @@
 package flashcardapp.controller;
 
+import flashcardapp.model.User;
 import flashcardapp.service.UserService;
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 import java.net.URL;
@@ -10,9 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -49,6 +48,11 @@ public class LoginController implements Initializable {
             KeyEvent.KEY_PRESSED, this::submitRegister);
         txtRegisterPasswordAgain.addEventHandler(
             KeyEvent.KEY_PRESSED, this::submitRegister);
+
+        User test = new User();
+        test.setUsername("TOINEN TESTI");
+        test.setPassword("TOINEN TESTI");
+        userService.addUser(test);
     }
 
     private void submitLogin(KeyEvent event) {
@@ -63,7 +67,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void onLoginClicked(MouseEvent mouseEvent) {
+    public void onLoginClicked(ActionEvent mouseEvent) {
         if (isNullOrWhitespace(txtLogInUsername.getText())) {
             lblLogInError.setText("Username is empty");
             return;
@@ -75,7 +79,7 @@ public class LoginController implements Initializable {
         lblLogInError.setText("");
     }
 
-    public void onRegisterClicked(MouseEvent mouseEvent) {
+    public void onRegisterClicked(ActionEvent mouseEvent) {
         String username = txtRegisterUsername.getText();
         String password = txtRegisterPassword.getText();
         String passwordAgain = txtRegisterPasswordAgain.getText();
