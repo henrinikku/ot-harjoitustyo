@@ -13,6 +13,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +35,10 @@ public class FlashCardUi extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(mainPage());
+        FXMLLoader loader = new FXMLLoader(mainPage());
+        loader.setControllerFactory(applicationContext::getBean);
+
+        Parent root = loader.load();
         stage.setTitle("FlashCardApp");
         stage.setScene(new Scene(root));
         stage.show();
