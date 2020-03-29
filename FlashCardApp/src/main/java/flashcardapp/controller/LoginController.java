@@ -1,10 +1,13 @@
 package flashcardapp.controller;
 
 import flashcardapp.model.User;
+import flashcardapp.service.SessionService;
 import flashcardapp.service.UserService;
+import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,6 +25,8 @@ public class LoginController implements Initializable {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private SessionService sessionService;
 
     // For now, declare element references as public to omit the @FXML annotation
     public Label lblLogInError;
@@ -48,11 +53,6 @@ public class LoginController implements Initializable {
             KeyEvent.KEY_PRESSED, this::submitRegister);
         txtRegisterPasswordAgain.addEventHandler(
             KeyEvent.KEY_PRESSED, this::submitRegister);
-
-        User test = new User();
-        test.setUsername("TOINEN TESTI");
-        test.setPassword("TOINEN TESTI");
-        userService.addUser(test);
     }
 
     private void submitLogin(KeyEvent event) {
@@ -67,16 +67,37 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void onLoginClicked(ActionEvent mouseEvent) {
-        if (isNullOrWhitespace(txtLogInUsername.getText())) {
+    public void onLoginClicked(ActionEvent mouseEvent) throws IOException {
+        String username = txtLogInUsername.getText();
+        String password = txtPassword.getText();
+        if (isNullOrWhitespace(username)) {
             lblLogInError.setText("Username is empty");
             return;
         }
-        if (isNullOrWhitespace(txtPassword.getText())) {
+        if (isNullOrWhitespace(password)) {
             lblLogInError.setText("Password is empty");
             return;
         }
         lblLogInError.setText("");
+
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        if (userService.checkCredentials(user)) {
+            sessionService.setLoggedInUser(user);
+            resetFields();
+            FlashCardUi.displayIndexView();
+        } else {
+            lblLogInError.setText("Wrong credentials");
+        }
+    }
+
+    private void resetFields() {
+        txtLogInUsername.setText("");
+        txtPassword.setText("");
+        txtRegisterUsername.setText("");
+        txtRegisterPassword.setText("");
+        txtRegisterPasswordAgain.setText("");
     }
 
     public void onRegisterClicked(ActionEvent mouseEvent) {
@@ -85,6 +106,10 @@ public class LoginController implements Initializable {
         String passwordAgain = txtRegisterPasswordAgain.getText();
         if (isNullOrWhitespace(username)) {
             lblRegisterError.setText("Username is empty");
+            return;
+        }
+        if (!userService.validateUsername(username)) {
+            displayRegisterError("Username is taken");
             return;
         }
         if (isNullOrWhitespace(password) || isNullOrWhitespace(passwordAgain)) {
@@ -99,6 +124,11 @@ public class LoginController implements Initializable {
             displayRegisterError("Passwords do not match");
             return;
         }
+
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        userService.addUser(user);
         displayRegisterSuccess("Account created!");
     }
 

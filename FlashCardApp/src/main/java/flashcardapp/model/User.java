@@ -22,9 +22,4 @@ public class User {
     @Getter
     @Setter
     private String password;
-
-    @Column(nullable = false)
-    @Getter
-    @Setter
-    private boolean deleted;
 }

@@ -33,7 +33,6 @@ public class DefaultUserService implements UserService {
     public boolean addUser(@NonNull User user) {
         String password = encoder.encode(user.getPassword());
         user.setPassword(password);
-        user.setDeleted(false);
         return userDao.addUser(user);
     }
 
@@ -51,11 +50,5 @@ public class DefaultUserService implements UserService {
     @Transactional
     public boolean validateUsername(@NonNull String username) {
         return !username.isBlank() && userDao.getByUsername(username) == null;
-    }
-
-    @Override
-    @Transactional
-    public List<User> getAll() {
-        return userDao.getAll();
     }
 }

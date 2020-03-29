@@ -15,13 +15,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URL;
 
 import static flashcardapp.helper.PageManager.*;
 
 @EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 @Component
 public class FlashCardUi extends Application {
-    private ConfigurableApplicationContext applicationContext;
+    private static ConfigurableApplicationContext applicationContext;
+    private static Stage stage;
+
 
     @Override
     public void init() {
@@ -32,11 +35,23 @@ public class FlashCardUi extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(loginView());
-        loader.setControllerFactory(applicationContext::getBean);
-
-        Parent root = loader.load();
+        FlashCardUi.stage = stage;
         stage.setTitle("FlashCardApp");
+        displayLoginView();
+    }
+
+    public static void displayLoginView() throws IOException {
+        displayView(loginView());
+    }
+
+    public static void displayIndexView() throws IOException {
+        displayView(indexView());
+    }
+
+    private static void displayView(URL url) throws IOException {
+        FXMLLoader loader = new FXMLLoader(url);
+        loader.setControllerFactory(applicationContext::getBean);
+        Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
     }
