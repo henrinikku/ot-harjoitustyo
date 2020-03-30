@@ -37,6 +37,7 @@ public class FlashCardUi extends Application {
     public void start(Stage stage) throws IOException {
         FlashCardUi.stage = stage;
         stage.setTitle("FlashCardApp");
+        stage.setResizable(false);
         displayLoginView();
     }
 
