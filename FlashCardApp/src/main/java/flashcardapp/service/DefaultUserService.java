@@ -1,28 +1,26 @@
 package flashcardapp.service;
 
-import flashcardapp.dao.DefaultUserDao;
 import flashcardapp.dao.UserDao;
-import lombok.NoArgsConstructor;
+import flashcardapp.model.User;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import flashcardapp.model.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
+
+import static flashcardapp.helper.StringUtils.isNullOrWhitespace;
 
 @Service
 public class DefaultUserService implements UserService {
 
     private UserDao userDao;
-    private BCryptPasswordEncoder encoder;
+    private PasswordEncoder encoder;
 
     @Autowired
     public DefaultUserService(
         @NonNull UserDao userDao,
-        @NonNull BCryptPasswordEncoder encoder
+        @NonNull PasswordEncoder encoder
     ) {
         this.userDao = userDao;
         this.encoder = encoder;
@@ -31,6 +29,11 @@ public class DefaultUserService implements UserService {
     @Override
     @Transactional
     public boolean addUser(@NonNull User user) {
+        if (isNullOrWhitespace(user.getUsername())
+            || isNullOrWhitespace(user.getPassword())
+        ) {
+            return false;
+        }
         String password = encoder.encode(user.getPassword());
         user.setPassword(password);
         return userDao.addUser(user);
