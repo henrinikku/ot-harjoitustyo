@@ -8,10 +8,6 @@ Sovelluksen avulla rekisteröityneet käyttäjät voivat luoda ja hallinnoida mu
 
 Aluksi ainoa käyttäjärooli on _normaali käyttäjä_. On mahdollista, että sovellukseen lisätään myöhemmin jonkinlaisia pääkäyttäjiä. Myöhemmin, jos sovellukseen lisätään mahdollisuus katsella ja muokata muiden käyttäjien muistikorttipakkoja, voi olla tarpeen luoda käyttäjille pakkakohtaisia rooleja, kuten esimerkiksi _katselija_, _muokkaaja_ ja _omistaja_.
 
-## Käyttöliittymäluonnos
-
-TODO
-
 ## Perusversion suunnitellut toiminnallisuudet
 
 ### Ennen kirjautumista
