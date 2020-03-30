@@ -19,6 +19,11 @@ Käytössä Java 11. Tietokantatiedosto generoidaan kansion _data_ alle, kun sov
 
 Komennot tulee suorittaa kaniossa FlashCardApp.
 
+### Asennus
+Riippuvuuksien asennus
+```
+mvn clean install
+```
 ### Suoritus
 
 Suoritus komentoriviltä
@@ -32,7 +37,10 @@ Suoritettavan jar-tiedoston generointi kansion _target_ alle
 ```
 mvn package
 ```
-
+Jar-tiedoston suoritus
+```
+java -jar target/FlashCardApp-1.0-SNAPSHOT.jar
+```
 ### Testaus
 
 Testien suoritus
