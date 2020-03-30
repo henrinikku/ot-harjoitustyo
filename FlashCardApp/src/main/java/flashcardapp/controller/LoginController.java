@@ -80,10 +80,8 @@ public class LoginController implements Initializable {
         }
         lblLogInError.setText("");
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        if (userService.checkCredentials(user)) {
+        if (userService.checkCredentials(username, password)) {
+            User user = userService.getByUsername(username);
             sessionService.setLoggedInUser(user);
             resetFields();
             FlashCardUi.displayIndexView();

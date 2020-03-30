@@ -38,17 +38,26 @@ public class DefaultUserService implements UserService {
 
     @Override
     @Transactional
-    public boolean checkCredentials(@NonNull User user) {
-        User claim = userDao.getByUsername(user.getUsername());
+    public boolean checkCredentials(
+        @NonNull String username,
+        @NonNull String password
+    ) {
+        User claim = userDao.getByUsername(username);
         if (claim == null) {
             return false;
         }
-        return encoder.matches(user.getPassword(), claim.getPassword());
+        return encoder.matches(password, claim.getPassword());
     }
 
     @Override
     @Transactional
     public boolean validateUsername(@NonNull String username) {
         return !username.isBlank() && userDao.getByUsername(username) == null;
+    }
+
+    @Override
+    @Transactional
+    public User getByUsername(String username) {
+        return userDao.getByUsername(username);
     }
 }
