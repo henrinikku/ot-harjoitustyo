@@ -13,7 +13,7 @@ Käytössä Java 11. Tietokantatiedosto generoidaan kansion _data_ alle, kun sov
 
 ## Releaset
 
-- Viikko 3 TODO
+Vielä ei kai oo pakko
 
 ## Komentorivikomennot
 
