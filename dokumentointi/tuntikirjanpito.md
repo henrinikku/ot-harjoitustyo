@@ -8,3 +8,4 @@
 | 28.3. | 10h   | konffaus, kirjautuminen                 |
 | 29.3. | 1h    | kirjautuminen/rekisteröityminen loppuun |
 | 30.3. | 4h    | parannuksia, testien konffaus, testit   |
+| 2.4.  | 30min | lisää modeleita, pientä refaktorointia  |
