@@ -5,18 +5,19 @@ import flashcardapp.service.SessionService;
 import flashcardapp.service.UserService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
-import javafx.scene.control.*;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static flashcardapp.helper.StringUtils.isNullOrWhitespace;
 
@@ -70,24 +71,15 @@ public class LoginController implements Initializable {
     public void onLoginClicked(ActionEvent mouseEvent) throws IOException {
         String username = txtLogInUsername.getText();
         String password = txtPassword.getText();
-        if (isNullOrWhitespace(username)) {
-            lblLogInError.setText("Username is empty");
-            return;
-        }
-        if (isNullOrWhitespace(password)) {
-            lblLogInError.setText("Password is empty");
-            return;
-        }
-        lblLogInError.setText("");
-
-        if (userService.checkCredentials(username, password)) {
-            User user = userService.getByUsername(username);
-            sessionService.setLoggedInUser(user);
-            resetFields();
-            FlashCardUi.displayIndexView();
-        } else {
+        if (!userService.checkCredentials(username, password)) {
             lblLogInError.setText("Wrong credentials");
+            return;
         }
+
+        User user = userService.getByUsername(username);
+        sessionService.setLoggedInUser(user);
+        resetFields();
+        FlashCardUi.displayIndexView();
     }
 
     private void resetFields() {
@@ -102,24 +94,9 @@ public class LoginController implements Initializable {
         String username = txtRegisterUsername.getText();
         String password = txtRegisterPassword.getText();
         String passwordAgain = txtRegisterPasswordAgain.getText();
-        if (isNullOrWhitespace(username)) {
-            lblRegisterError.setText("Username is empty");
-            return;
-        }
-        if (!userService.validateUsername(username)) {
-            displayRegisterError("Username is taken");
-            return;
-        }
-        if (isNullOrWhitespace(password) || isNullOrWhitespace(passwordAgain)) {
-            displayRegisterError("Password is empty");
-            return;
-        }
-        if (password.length() < 8) {
-            displayRegisterError("Password is too short");
-            return;
-        }
-        if (!password.equals(passwordAgain)) {
-            displayRegisterError("Passwords do not match");
+        if (!validateUsername(username)
+            || !validatePassword(password, passwordAgain)
+        ) {
             return;
         }
 
@@ -128,6 +105,34 @@ public class LoginController implements Initializable {
         user.setPassword(password);
         userService.addUser(user);
         displayRegisterSuccess("Account created!");
+    }
+
+    private boolean validateUsername(String username) {
+        if (isNullOrWhitespace(username)) {
+            displayRegisterError("Username is empty");
+            return false;
+        }
+        if (!userService.validateUsername(username)) {
+            displayRegisterError("Username is taken");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validatePassword(String password, String passwordAgain) {
+        if (isNullOrWhitespace(password) || isNullOrWhitespace(passwordAgain)) {
+            displayRegisterError("Password is empty");
+            return false;
+        }
+        if (password.length() < 8) {
+            displayRegisterError("Password is too short");
+            return false;
+        }
+        if (!password.equals(passwordAgain)) {
+            displayRegisterError("Passwords do not match");
+            return false;
+        }
+        return true;
     }
 
     private void displayRegisterSuccess(String message) {
