@@ -8,6 +8,7 @@ Käytössä Java 11. Tietokantatiedosto generoidaan kansion _data_ alle, kun sov
 
 ## Dokumentaatio
 
+- [Arkkitehtuurikuvaus](dokumentointi/arkkitehtuuri.md)
 - [Vaatimusmäärittely](dokumentointi/vaatimusmaarittely.md)
 - [Työaikakirjanpito](dokumentointi/tuntikirjanpito.md)
 
