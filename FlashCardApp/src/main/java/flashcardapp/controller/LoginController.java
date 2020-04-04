@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static flashcardapp.helper.StringUtils.isNullOrWhitespace;
+import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 
 @Component
 public class LoginController implements Initializable {

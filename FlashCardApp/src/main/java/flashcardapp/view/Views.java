@@ -1,8 +1,8 @@
-package flashcardapp.helper;
+package flashcardapp.view;
 
 import java.net.URL;
 
-public class PageManager {
+public class Views {
 
     public static URL loginView() {
         return getPathFor("fxml/Login.fxml");
@@ -13,6 +13,6 @@ public class PageManager {
     }
 
     private static URL getPathFor(String path) {
-        return PageManager.class.getClassLoader().getResource(path);
+        return Views.class.getClassLoader().getResource(path);
     }
 }

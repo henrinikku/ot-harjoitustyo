@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-import static flashcardapp.helper.StringUtils.isNullOrWhitespace;
+import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 
 @Service
 public class DefaultUserService implements UserService {

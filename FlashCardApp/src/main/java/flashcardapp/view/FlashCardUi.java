@@ -6,10 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -17,14 +15,15 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.net.URL;
 
-import static flashcardapp.helper.PageManager.*;
+import static flashcardapp.view.Views.indexView;
+import static flashcardapp.view.Views.loginView;
 
 @EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 @Component
 public class FlashCardUi extends Application {
+
     private static ConfigurableApplicationContext applicationContext;
     private static Stage stage;
-
 
     @Override
     public void init() {

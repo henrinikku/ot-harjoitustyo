@@ -1,4 +1,4 @@
-package flashcardapp.helper;
+package flashcardapp.util;
 
 public class StringUtils {
     public static boolean isNullOrWhitespace(String s) {
