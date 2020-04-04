@@ -2,7 +2,7 @@
 ## Rakenne
 Sovellus noudattaa kerrosarkkitehtuuria: käyttöliittymän tapahtumankäsittelijöistä kutsutaan sovelluslogiikasta vastaavia service-luokkia, serviceistä kutsutaan tietojen pysyväistallennuksesta vastaavia DAO-luokkia.
 
-Kaaviossa ei turhaan kuvata kaikkia itsestäänselviä "yhden suhde yhteen" -tyyppisiä riippuvuuksia (eikä pakettia _flashcardapp.util_), sillä ne lähinnä häiritsevät tärkeämpien tietojen havainnointia.
+Kaaviossa ei turhaan kuvata jokaista itsestäänselvää "yhden suhde yhteen" -tyyppistä riippuvuutta (eikä pakettia _flashcardapp.util_), sillä ne lähinnä häiritsevät tärkeämpien tietojen havainnointia.
 
 ![pakkauskaavio](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/arkkitehtuuri.png)
 
