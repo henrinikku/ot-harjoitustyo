@@ -55,3 +55,9 @@ Testikattavuusraportin generointi
 ```
 mvn jacoco:report
 ```
+### Checkstyle
+
+Checkstyle-raportin generointi
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
