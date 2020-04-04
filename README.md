@@ -53,7 +53,7 @@ mvn test
 Testikattavuusraportin generointi
 
 ```
-mvn jacoco:report
+mvn test jacoco:report
 ```
 ### Checkstyle
 
