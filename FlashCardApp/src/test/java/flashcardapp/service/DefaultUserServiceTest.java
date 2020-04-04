@@ -42,4 +42,16 @@ public class DefaultUserServiceTest {
         user.setPassword("test");
         assertTrue(userService.addUser(user));
     }
+
+    @Test
+    public void emptyUsernameIsNotAccepted() {
+        assertFalse(userService.validateUsername(""));
+    }
+
+    @Test
+    public void addedUserCanBeFound() {
+        User user = new User("testi123", "testi123");
+        userService.addUser(user);
+        assertNotNull(userService.getByUsername(user.getUsername()));
+    }
 }
