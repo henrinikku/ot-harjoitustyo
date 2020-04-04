@@ -1,6 +1,7 @@
 package flashcardapp.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -9,7 +10,13 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
 public class User extends BaseEntity {
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     @Column(nullable = false, unique = true)
     @Getter

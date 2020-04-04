@@ -7,16 +7,9 @@ import javax.persistence.Query;
 
 @Repository
 public class DefaultUserDao extends BaseDao implements UserDao {
-    // TODO: Logging
     @Override
     public boolean addUser(User user) {
-        try {
-            persist(user);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return persist(user);
     }
 
     @Override

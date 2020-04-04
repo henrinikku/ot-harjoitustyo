@@ -15,7 +15,6 @@ import javafx.scene.input.KeyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,12 +23,6 @@ import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 @Component
 public class LoginController implements Initializable {
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private SessionService sessionService;
-
-    // For now, declare element references as public to omit the @FXML annotation
     public Label lblLogInError;
     public TextField txtLogInUsername;
     public PasswordField txtPassword;
@@ -40,6 +33,11 @@ public class LoginController implements Initializable {
     public PasswordField txtRegisterPassword;
     public PasswordField txtRegisterPasswordAgain;
     public Button btnRegister;
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private SessionService sessionService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,7 +66,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void onLoginClicked(ActionEvent mouseEvent) throws IOException {
+    public void onLoginClicked(ActionEvent mouseEvent) {
         String username = txtLogInUsername.getText();
         String password = txtPassword.getText();
         if (!userService.checkCredentials(username, password)) {
@@ -78,16 +76,7 @@ public class LoginController implements Initializable {
 
         User user = userService.getByUsername(username);
         sessionService.setLoggedInUser(user);
-        resetFields();
         FlashCardUi.displayIndexView();
-    }
-
-    private void resetFields() {
-        txtLogInUsername.setText("");
-        txtPassword.setText("");
-        txtRegisterUsername.setText("");
-        txtRegisterPassword.setText("");
-        txtRegisterPasswordAgain.setText("");
     }
 
     public void onRegisterClicked(ActionEvent mouseEvent) {
@@ -100,9 +89,7 @@ public class LoginController implements Initializable {
             return;
         }
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
+        User user = new User(username, password);
         userService.addUser(user);
         displayRegisterSuccess("Account created!");
     }

@@ -22,8 +22,14 @@ public abstract class BaseDao implements Dao {
         return getSession().createQuery(query);
     }
 
-    protected void persist(Object o) {
-        getSession().persist(o);
+    protected boolean persist(Object o) {
+        try {
+            getSession().persist(o);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     protected Object getFirst(Query query) {

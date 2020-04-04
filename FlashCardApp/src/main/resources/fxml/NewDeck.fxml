@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flashcardapp.controller.NewDeckController">
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="600.0" text="New Deck">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Label fx:id="lblError" layoutX="50.0" layoutY="110.0" prefHeight="25.0" prefWidth="250.0" textFill="RED" />
+   <TextField fx:id="txtName" layoutX="50.0" layoutY="150.0" prefHeight="30.0" prefWidth="500.0" promptText="Name *" />
+   <TextArea fx:id="txtDescription" layoutX="50.0" layoutY="200.0" prefHeight="120.0" prefWidth="500.0" promptText="Description" />
+   <Button fx:id="btnCreate" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCreateClick" prefHeight="30.0" prefWidth="100.0" text="Create" />
+</AnchorPane>

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.SneakyThrows;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,9 +15,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
-
-import static flashcardapp.view.Views.indexView;
-import static flashcardapp.view.Views.loginView;
 
 @EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 @Component
@@ -33,22 +31,27 @@ public class FlashCardUi extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         FlashCardUi.stage = stage;
         stage.setTitle("FlashCardApp");
         stage.setResizable(false);
         displayLoginView();
     }
 
-    public static void displayLoginView() throws IOException {
-        displayView(loginView());
+    public static void displayLoginView() {
+        displayView(Views.loginView());
     }
 
-    public static void displayIndexView() throws IOException {
-        displayView(indexView());
+    public static void displayIndexView() {
+        displayView(Views.indexView());
     }
 
-    private static void displayView(URL url) throws IOException {
+    public static void displayNewDeckView() {
+        displayView(Views.newDeckView());
+    }
+
+    @SneakyThrows(IOException.class)
+    private static void displayView(URL url) {
         FXMLLoader loader = new FXMLLoader(url);
         loader.setControllerFactory(applicationContext::getBean);
         Parent root = loader.load();
