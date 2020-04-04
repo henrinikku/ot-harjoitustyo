@@ -126,6 +126,9 @@
                     <!--                    <includes>-->
                     <!--                        <include>flashcardapp.service.*</include>-->
                     <!--                    </includes>-->
+                    <excludes>
+                        <exclude>flashcardapp/view/*</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
