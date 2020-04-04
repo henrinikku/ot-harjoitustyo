@@ -1,0 +1,49 @@
+@startuml
+
+package "flashcardapp.view" as view {
+    component "Main" as main
+    component "FlashCardUi" as ui
+}
+
+view <...> controller
+
+package "flashcardapp.controller" as controller {
+    component "IndexController" as indexController
+    component "LoginController" as loginController
+}
+
+controller ...> service
+
+package "flashcardapp.service" as service {
+    component "UserService" as userService
+    component "SessionService" as sessionService
+    component "DeckService" as deckService
+}
+
+service ...> dao
+
+package "flashcardapp.dao" as dao {
+    component "UserDao" as userDao
+    component "CardDao" as cardDao
+    component "DeckDao" as deckDao
+}
+
+package "flashcardapp.model" as model {
+    component "User" as user
+    component "Card" as card
+    component "Deck" as deck
+
+    user "1" -- "*" card
+    user "1" -- "*" deck
+    deck "1" -- "*" card
+}
+
+userDao "1" -- "*" user
+cardDao "1" -- "*" card
+deckDao "1" -- "*" deck
+
+controller ..> model
+service ..> model
+dao ..> model
+
+@enduml
