@@ -4,7 +4,7 @@ Sovelluksen avulla rekisteröityneet käyttäjät voivat luoda ja hallinnoida mu
 
 ## HUOM!!!
 
-Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimmäisen kerran. Mikäli oikean niminen tietokanta on jo olemassa, ei skeema välttämättä päivity oikein. Jos sovellusta testataan eri viikkoina samalla tietokoneella, täytyy kansio _data_ poistaa välissä.
+Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimmäisen kerran. Mikäli oikean niminen tietokanta on jo olemassa, skeema ei välttämättä päivity oikein. Jos sovellusta testataan eri viikkoina samalla tietokoneella, täytyy kansio _data_ poistaa välissä.
 
 ## Dokumentaatio
 
