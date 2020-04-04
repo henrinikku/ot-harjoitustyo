@@ -10,4 +10,5 @@
 |  30.3.   | 4h            | parannuksia, testien konffaus, testit      |
 |   2.4.   | 30min         | lisää modeleita, pientä refaktorointia     |
 |   3.4.   | 1h            | checkstyle käyttöön, pientä refaktorointia |
-| **yht.** | **18h 30min** |                                            |
+|   3.4.   | 3h 30min      | pakan lisäys, testejä, refaktorointia      |
+| **yht.** | **22h**       |                                            |
