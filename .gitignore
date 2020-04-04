@@ -6,6 +6,8 @@
 /FlashCardApp/target
 /FlashCardApp/data
 
+/dokumentointi/tmp
+
 *.DS_Store
 *.iml
 */.idea/
