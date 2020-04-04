@@ -2,9 +2,9 @@
 
 Sovelluksen avulla rekisteröityneet käyttäjät voivat luoda ja hallinnoida muistikortteja sekä niistä koostuvia pakkoja. Muistikortit ja -pakat ovat käyttäjäkohtaisia.
 
-## Huomioita
+## HUOM!!!
 
-Käytössä Java 11. Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimmäisen kerran.
+Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimmäisen kerran. Mikäli oikean niminen tietokanta on jo olemassa, ei skeema välttämättä päivity oikein. Jos sovellusta testataan eri viikkoina samalla tietokoneella, täytyy kansio _data_ poistaa välissä.
 
 ## Dokumentaatio
 
