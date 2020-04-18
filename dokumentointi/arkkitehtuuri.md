@@ -12,3 +12,8 @@ Kaaviossa ei turhaan kuvata jokaista itsestäänselvää "yhden suhde yhteen" -t
 - _flashcardapp.dao_ sisältää tietojen pysyväistallennuksesta vastaavat DAO-luokat
 - _flashcardapp.model_ sisältää ohjelmassa käsiteltävät, tietokantaan tallennettavat entiteetit
 - _flashcardapp.util_ sisältää apumetodeja esimerkiksi merkkijonojen käsittelyyn
+
+## Päätoiminnallisuudet
+### Käyttäjän luominen
+Kun kirjautumaton käyttäjä kirjoittaa olemassaolevan käyttäjän käyttäjänimen ja salasanan kirjautumislomakkeelle:
+![kirjautuminen_sekvenssikaavio]()
