@@ -16,4 +16,4 @@ Kaaviossa ei turhaan kuvata jokaista itsestäänselvää "yhden suhde yhteen" -t
 ## Päätoiminnallisuudet
 ### Käyttäjän luominen
 Kun kirjautumaton käyttäjä kirjoittaa olemassaolevan käyttäjän käyttäjänimen ja salasanan kirjautumislomakkeelle:
-![kirjautuminen_sekvenssikaavio]()
+![kirjautuminen_sekvenssikaavio](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/kayttajan_kirjautuminen.png)
