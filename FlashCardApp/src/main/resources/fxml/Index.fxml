@@ -10,6 +10,7 @@
          <Font name="System Bold" size="24.0" />
       </font>
    </Label>
+   <Button fx:id="btnLogOut" layoutX="515.0" layoutY="25.0" mnemonicParsing="false" onAction="#onLogOutClick" text="Log out" />
    <Label fx:id="lblDecks" alignment="CENTER" contentDisplay="CENTER" layoutY="150.0" prefHeight="50.0" prefWidth="600.0" />
    <Button fx:id="btnNewDeck" layoutX="50.0" layoutY="300.0" mnemonicParsing="false" onAction="#onNewDeckClick" prefHeight="30.0" text="Create a new deck" />
 </AnchorPane>

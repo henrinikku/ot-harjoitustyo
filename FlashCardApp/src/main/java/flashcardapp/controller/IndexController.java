@@ -20,6 +20,7 @@ public class IndexController implements Initializable {
     public Label lblWelcome;
     public Label lblDecks;
     public Button btnNewDeck;
+    public Button btnLogOut;
 
     @Autowired
     private SessionService sessionService;
@@ -40,5 +41,10 @@ public class IndexController implements Initializable {
 
     public void onNewDeckClick(ActionEvent actionEvent) {
         FlashCardUi.displayNewDeckView();
+    }
+
+    public void onLogOutClick(ActionEvent actionEvent) {
+        sessionService.logOut();
+        FlashCardUi.displayLoginView();
     }
 }

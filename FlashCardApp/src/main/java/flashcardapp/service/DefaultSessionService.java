@@ -10,4 +10,9 @@ public class DefaultSessionService implements SessionService {
     @Getter
     @Setter
     private User loggedInUser;
+
+    @Override
+    public void logOut() {
+        setLoggedInUser(null);
+    }
 }
