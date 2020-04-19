@@ -2,6 +2,7 @@ package flashcardapp.controller;
 
 import flashcardapp.model.Deck;
 import flashcardapp.service.DeckService;
+import flashcardapp.service.SessionService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -20,11 +21,14 @@ public class NewDeckController implements Initializable {
 
     public Label lblError;
     public Button btnCreate;
+    public Button btnCancel;
     public TextField txtName;
     public TextArea txtDescription;
 
     @Autowired
     private DeckService deckService;
+    @Autowired
+    private SessionService sessionService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -37,5 +41,9 @@ public class NewDeckController implements Initializable {
         } else {
             lblError.setText("Invalid name");
         }
+    }
+
+    public void onCancelClick(ActionEvent actionEvent) {
+        FlashCardUi.displayIndexView();
     }
 }

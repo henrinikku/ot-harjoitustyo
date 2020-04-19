@@ -14,4 +14,5 @@
    <TextField fx:id="txtName" layoutX="50.0" layoutY="150.0" prefHeight="30.0" prefWidth="500.0" promptText="Name *" />
    <TextArea fx:id="txtDescription" layoutX="50.0" layoutY="200.0" prefHeight="120.0" prefWidth="500.0" promptText="Description" />
    <Button fx:id="btnCreate" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCreateClick" prefHeight="30.0" prefWidth="100.0" text="Create" />
+   <Button fx:id="btnCancel" layoutX="170.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
 </AnchorPane>
