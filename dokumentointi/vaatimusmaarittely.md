@@ -36,7 +36,7 @@ Aluksi ainoa käyttäjärooli on _normaali käyttäjä_. On mahdollista, että s
   - kortteja näytetään käyttäjälle näennäisen satunnaisessa järjestyksessä
   - kortista näytetään aluksi kysymys
   - vastaus paljastetaan, kun käyttäjä painaa nappia
-- [ ] käyttäjä voi kirjautua ulos
+- [x] käyttäjä voi kirjautua ulos
 
 ## Jatkokehitysideoita
 
