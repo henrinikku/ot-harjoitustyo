@@ -37,5 +37,10 @@ public class Deck extends BaseEntity {
     @Getter
     @Setter
     private List<Card> cards;
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
 

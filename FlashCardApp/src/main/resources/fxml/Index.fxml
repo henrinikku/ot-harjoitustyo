@@ -11,6 +11,7 @@
       </font>
    </Label>
    <Button fx:id="btnLogOut" layoutX="515.0" layoutY="25.0" mnemonicParsing="false" onAction="#onLogOutClick" text="Log out" />
-   <Label fx:id="lblDecks" alignment="CENTER" contentDisplay="CENTER" layoutY="150.0" prefHeight="50.0" prefWidth="600.0" />
+   <Label fx:id="lblDecks" layoutX="50.0" layoutY="100.0" text="Your decks" />
+   <ListView fx:id="lvDecks" layoutX="50.0" layoutY="125.0" prefHeight="160.0" prefWidth="500.0" onMouseClicked="#onDeckSelected" />
    <Button fx:id="btnNewDeck" layoutX="50.0" layoutY="300.0" mnemonicParsing="false" onAction="#onNewDeckClick" prefHeight="30.0" text="Create a new deck" />
 </AnchorPane>

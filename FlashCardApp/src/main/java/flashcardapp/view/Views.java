@@ -16,6 +16,10 @@ public class Views {
         return getPathFor("fxml/NewDeck.fxml");
     }
 
+    public static URL singleDeckView() {
+        return getPathFor("fxml/Deck.fxml");
+    }
+
     private static URL getPathFor(String path) {
         return Views.class.getClassLoader().getResource(path);
     }

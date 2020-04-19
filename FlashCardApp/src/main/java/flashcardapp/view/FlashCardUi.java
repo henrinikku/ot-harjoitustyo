@@ -50,6 +50,10 @@ public class FlashCardUi extends Application {
         displayView(Views.newDeckView());
     }
 
+    public static void displaySingleDeckView() {
+        displayView(Views.singleDeckView());
+    }
+
     @SneakyThrows(IOException.class)
     private static void displayView(URL url) {
         FXMLLoader loader = new FXMLLoader(url);

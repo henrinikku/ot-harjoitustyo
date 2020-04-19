@@ -10,4 +10,8 @@ public interface DeckService {
     boolean validateName(String name);
 
     List<Deck> getAll();
+
+    Deck getSelectedDeck();
+
+    void setSelectedDeck(Deck deck);
 }
