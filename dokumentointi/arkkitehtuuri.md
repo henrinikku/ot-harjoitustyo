@@ -14,6 +14,6 @@ Kaaviossa ei turhaan kuvata jokaista itsestäänselvää "yhden suhde yhteen" -t
 - _flashcardapp.util_ sisältää apumetodeja esimerkiksi merkkijonojen käsittelyyn
 
 ## Päätoiminnallisuudet
-### Käyttäjän luominen
+### Kirjautuminen
 Kun kirjautumaton käyttäjä kirjoittaa olemassaolevan käyttäjän käyttäjänimen ja salasanan kirjautumislomakkeelle:
 ![kirjautuminen_sekvenssikaavio](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/kayttajan_kirjautuminen.png)
