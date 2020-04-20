@@ -54,4 +54,22 @@ public class DefaultUserServiceTest {
         userService.addUser(user);
         assertNotNull(userService.getByUsername(user.getUsername()));
     }
+
+    @Test
+    public void wrongPasswordIsNotAccepted() {
+        User user = new User("testi123", "testi123");
+        userService.addUser(user);
+        assertFalse(
+            userService.checkCredentials(user.getUsername(), "wrong")
+        );
+    }
+
+    @Test
+    public void correctPasswordIsAccepted() {
+        User user = new User("testi123", "testi123");
+        userService.addUser(user);
+        assertTrue(
+            userService.checkCredentials(user.getUsername(), "testi123")
+        );
+    }
 }

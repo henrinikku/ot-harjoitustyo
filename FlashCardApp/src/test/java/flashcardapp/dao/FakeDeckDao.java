@@ -26,6 +26,12 @@ public class FakeDeckDao implements DeckDao {
 
     @Override
     public boolean deleteById(long id) {
+        for (int i = 0; i < decks.size(); i++) {
+            if (decks.get(i).getId() == id) {
+                decks.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
@@ -33,7 +39,7 @@ public class FakeDeckDao implements DeckDao {
     public List<Deck> getByUserId(long userId) {
         return decks
             .stream()
-            .filter(d -> d.getId() == userId)
+            .filter(d -> d.getOwner().getId() == userId)
             .collect(Collectors.toList());
     }
 }
