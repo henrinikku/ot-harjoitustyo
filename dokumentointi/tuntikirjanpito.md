@@ -13,5 +13,5 @@
 |   4.4.   | 3h 30min      | pakan lisäys, testejä, refaktorointia, arkkitehtuurikuvaus                   |
 |  18.4.   | 1h            | sekvenssikaavio                                                              |
 |  19.4.   | 2h            | cancel-napit, uloskirjautuminen, pakkojen listaus, yhden pakan näkymä alkuun |
-|  20.4.   | 1h 30min      | pakan poisto, soft delete käyttöön, refaktorointia                           |
-| **yht.** | **26h 30min** |                                                                              |
+|  20.4.   | 2h 30min      | pakan poisto, soft delete käyttöön, refaktorointia, testejä                  |
+| **yht.** | **27h 30min** |                                                                              |
