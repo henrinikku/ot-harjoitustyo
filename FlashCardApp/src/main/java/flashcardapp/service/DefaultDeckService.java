@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +34,6 @@ public class DefaultDeckService implements DeckService {
     }
 
     @Override
-    @Transactional
     public boolean addDeck(Deck deck) {
         User user = sessionService.getLoggedInUser();
         if (user == null || !validateName(deck.getName())) {
@@ -46,17 +44,31 @@ public class DefaultDeckService implements DeckService {
     }
 
     @Override
-    @Transactional
     public boolean validateName(String name) {
         return !isNullOrWhitespace(name) && deckDao.getByName(name) == null;
     }
 
     @Override
-    @Transactional
     public List<Deck> getAll() {
         User user = sessionService.getLoggedInUser();
         return (user == null)
             ? new ArrayList<>()
             : deckDao.getByUserId(user.getId());
+    }
+
+    @Override
+    public boolean deleteDeck(Deck deck) {
+        return deck != null
+            && deck.getId() > 0
+            && deckDao.deleteById(deck.getId());
+    }
+
+    @Override
+    public boolean deleteSelected() {
+        boolean deleted = deleteDeck(getSelectedDeck());
+        if (deleted) {
+            setSelectedDeck(null);
+        }
+        return deleted;
     }
 }

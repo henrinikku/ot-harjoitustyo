@@ -25,6 +25,11 @@ public class FakeDeckDao implements DeckDao {
     }
 
     @Override
+    public boolean deleteById(long id) {
+        return false;
+    }
+
+    @Override
     public List<Deck> getByUserId(long userId) {
         return decks
             .stream()

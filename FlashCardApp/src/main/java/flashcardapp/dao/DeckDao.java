@@ -9,5 +9,7 @@ public interface DeckDao extends Dao {
 
     Deck getByName(String name);
 
+    boolean deleteById(long id);
+
     List<Deck> getByUserId(long userId);
 }

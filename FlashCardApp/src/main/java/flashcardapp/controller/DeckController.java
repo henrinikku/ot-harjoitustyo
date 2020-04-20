@@ -21,6 +21,7 @@ public class DeckController implements Initializable {
     public Label lblHeader;
     public Label lblDescription;
     public Button btnCancel;
+    public Button btnDelete;
 
     @Autowired
     private DeckService deckService;
@@ -40,6 +41,11 @@ public class DeckController implements Initializable {
 
     public void onCancelClick(ActionEvent actionEvent) {
         deckService.setSelectedDeck(null);
+        FlashCardUi.displayIndexView();
+    }
+
+    public void onDeleteClick(ActionEvent actionEvent) {
+        deckService.deleteSelected();
         FlashCardUi.displayIndexView();
     }
 }

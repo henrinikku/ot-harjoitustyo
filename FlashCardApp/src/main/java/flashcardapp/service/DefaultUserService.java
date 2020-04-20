@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 
 @Service
@@ -27,7 +25,6 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    @Transactional
     public boolean addUser(@NonNull User user) {
         if (isNullOrWhitespace(user.getUsername())
             || isNullOrWhitespace(user.getPassword())
@@ -40,7 +37,6 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    @Transactional
     public boolean checkCredentials(
         @NonNull String username,
         @NonNull String password
@@ -53,13 +49,11 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    @Transactional
     public boolean validateUsername(@NonNull String username) {
         return !username.isBlank() && userDao.getByUsername(username) == null;
     }
 
     @Override
-    @Transactional
     public User getByUsername(String username) {
         return userDao.getByUsername(username);
     }

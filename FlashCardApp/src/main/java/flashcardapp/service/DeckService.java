@@ -11,6 +11,10 @@ public interface DeckService {
 
     List<Deck> getAll();
 
+    boolean deleteDeck(Deck deck);
+
+    boolean deleteSelected();
+
     Deck getSelectedDeck();
 
     void setSelectedDeck(Deck deck);
