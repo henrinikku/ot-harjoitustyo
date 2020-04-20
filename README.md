@@ -14,7 +14,7 @@ Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimm√
 
 ## Releaset
 
-Viel√§ ei kai oo pakko
+- [Viikko 5](https://github.com/henrinikku/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivikomennot
 
