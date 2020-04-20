@@ -26,7 +26,7 @@ Aluksi ainoa käyttäjärooli on _normaali käyttäjä_. On mahdollista, että s
   - pakalle voi halutessaan antaa kuvauksen
 - [x] käyttäjä näkee luomansa muistikorttipakat
   - jos pakkoja ei ole vielä luotu, pakkojen tilalla lukee joku tilannetta kuvaava teksti
-- [ ] käyttäjä voi poistaa muistikorttipakkoja
+- [x] käyttäjä voi poistaa muistikorttipakkoja
 - [ ] käyttäjä voi muokata muistikorttipakkoja
   - muokkaus tapahtuu yksi pakka kerrallaan
   - voi lisätä, muokata sekä poistaa kortteja
