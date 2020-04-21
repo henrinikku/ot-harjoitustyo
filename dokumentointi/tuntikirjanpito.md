@@ -14,4 +14,5 @@
 |  18.4.   | 1h            | sekvenssikaavio                                                              |
 |  19.4.   | 2h            | cancel-napit, uloskirjautuminen, pakkojen listaus, yhden pakan näkymä alkuun |
 |  20.4.   | 2h 30min      | pakan poisto, soft delete käyttöön, refaktorointia, testejä                  |
-| **yht.** | **27h 30min** |                                                                              |
+|  21.4.   | 30min         | bugikorjaus                                                                  |
+| **yht.** | **28h**       |                                                                              |
