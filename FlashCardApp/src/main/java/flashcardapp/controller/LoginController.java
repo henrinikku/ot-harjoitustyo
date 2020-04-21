@@ -43,15 +43,20 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Make the ui behave like a form
         txtLogInUsername.addEventHandler(
-            KeyEvent.KEY_PRESSED, this::submitLogin);
+            KeyEvent.KEY_PRESSED, this::submitLogin
+        );
         txtPassword.addEventHandler(
-            KeyEvent.KEY_PRESSED, this::submitLogin);
+            KeyEvent.KEY_PRESSED, this::submitLogin
+        );
         txtRegisterUsername.addEventHandler(
-            KeyEvent.KEY_PRESSED, this::submitRegister);
+            KeyEvent.KEY_PRESSED, this::submitRegister
+        );
         txtRegisterPassword.addEventHandler(
-            KeyEvent.KEY_PRESSED, this::submitRegister);
+            KeyEvent.KEY_PRESSED, this::submitRegister
+        );
         txtRegisterPasswordAgain.addEventHandler(
-            KeyEvent.KEY_PRESSED, this::submitRegister);
+            KeyEvent.KEY_PRESSED, this::submitRegister
+        );
     }
 
     private void submitLogin(KeyEvent event) {
@@ -91,6 +96,7 @@ public class LoginController implements Initializable {
 
         User user = new User(username, password);
         userService.addUser(user);
+        clearRegisterForm();
         displayRegisterSuccess("Account created!");
     }
 
@@ -130,5 +136,11 @@ public class LoginController implements Initializable {
     private void displayRegisterError(String message) {
         lblRegisterSuccess.setText("");
         lblRegisterError.setText(message);
+    }
+
+    private void clearRegisterForm() {
+        txtRegisterUsername.clear();
+        txtRegisterPassword.clear();
+        txtRegisterPasswordAgain.clear();
     }
 }
