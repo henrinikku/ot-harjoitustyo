@@ -30,7 +30,6 @@ public class DeckController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Deck deck = deckService.getSelectedDeck();
         if (deck == null) {
-            FlashCardUi.displayIndexView();
             return;
         }
         lblHeader.setText(deck.getName());

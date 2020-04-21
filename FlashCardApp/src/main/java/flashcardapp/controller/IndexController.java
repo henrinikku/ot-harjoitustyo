@@ -66,6 +66,9 @@ public class IndexController implements Initializable {
 
     public void onDeckSelected(MouseEvent mouseEvent) {
         Deck selected = lvDecks.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            return;
+        }
         deckService.setSelectedDeck(selected);
         FlashCardUi.displaySingleDeckView();
     }
