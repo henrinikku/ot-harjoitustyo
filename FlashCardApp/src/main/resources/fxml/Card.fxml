@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flashcardapp.controller.CardController">
+    <Label fx:id="lblHeader" alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="600.0" text="New card">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Label fx:id="lblError" layoutX="50.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" textFill="RED" />
+    <TextField fx:id="txtName" layoutX="50.0" layoutY="125.0" prefHeight="30.0" prefWidth="500.0" promptText="Name *" />
+    <TextField fx:id="txtQuestion" layoutX="50.0" layoutY="175.0" prefHeight="30.0" prefWidth="500.0" promptText="Question *" />
+    <TextArea fx:id="txtAnswer" layoutX="50.0" layoutY="225.0" prefHeight="100.0" prefWidth="500.0" promptText="Answer *" />
+    <Button fx:id="btnSave" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#onSaveClick" prefHeight="30.0" prefWidth="100.0" text="Create" />
+    <Button fx:id="btnDelete" layoutX="170.0" layoutY="340.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="30.0" prefWidth="100.0" text="Delete" />
+    <Button fx:id="btnCancel" layoutX="290.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
+</AnchorPane>

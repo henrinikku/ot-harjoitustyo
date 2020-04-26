@@ -1,5 +1,6 @@
 package flashcardapp.service;
 
+import flashcardapp.model.Card;
 import flashcardapp.model.Deck;
 
 import java.util.List;

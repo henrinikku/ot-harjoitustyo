@@ -20,6 +20,10 @@ public class Views {
         return getPathFor("fxml/Deck.fxml");
     }
 
+    public static URL singleCardView() {
+        return getPathFor("fxml/Card.fxml");
+    }
+
     private static URL getPathFor(String path) {
         return Views.class.getClassLoader().getResource(path);
     }

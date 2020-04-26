@@ -59,6 +59,17 @@ public abstract class BaseDao<T extends BaseEntity> implements Dao {
     }
 
     @Transactional
+    protected boolean addOrUpdate(T o) {
+        try {
+            getSession().saveOrUpdate(o);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Transactional
     protected T getFirst(Query query) {
         return getFirst(query.getResultList());
     }

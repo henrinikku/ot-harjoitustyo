@@ -1,6 +1,7 @@
 package flashcardapp.service;
 
 import flashcardapp.dao.DeckDao;
+import flashcardapp.model.Card;
 import flashcardapp.model.Deck;
 import flashcardapp.model.User;
 import lombok.Getter;
