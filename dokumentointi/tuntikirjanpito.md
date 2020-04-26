@@ -15,4 +15,5 @@
 |  19.4.   | 2h            | cancel-napit, uloskirjautuminen, pakkojen listaus, yhden pakan näkymä alkuun |
 |  20.4.   | 2h 30min      | pakan poisto, soft delete käyttöön, refaktorointia, testejä                  |
 |  21.4.   | 30min         | bugikorjaus                                                                  |
-| **yht.** | **28h**       |                                                                              |
+|  27.4.   | 2h 30min      | korttien listaus, lisäys, muokkaus ja poisto                                 |
+| **yht.** | **30h 30min** |                                                                              |
