@@ -1,33 +1,42 @@
 package flashcardapp.service;
 
-import flashcardapp.dao.CardDao;
-import flashcardapp.dao.DeckDao;
-import flashcardapp.dao.FakeCardDao;
-import flashcardapp.dao.FakeDeckDao;
+import flashcardapp.dao.*;
 import flashcardapp.model.Card;
 import flashcardapp.model.Deck;
 import flashcardapp.model.User;
+import javafx.application.Application;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static org.junit.Assert.*;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:spring-config-test.xml")
 public class DefaultCardServiceTest {
 
+    private Card card;
     private DefaultCardService cardService;
     private DefaultDeckService deckService;
     private SessionService sessionService;
-    private CardDao cardDao;
-    private DeckDao deckDao;
 
-    private Card card;
+    @Autowired
+    private CardDao cardDao;
+    @Autowired
+    private DeckDao deckDao;
+    @Autowired
+    private UserDao userDao;
 
     @Before
+    @Transactional
     public void setUp() {
-        cardDao = new FakeCardDao();
-        deckDao = new FakeDeckDao();
         sessionService = new DefaultSessionService();
         deckService = new DefaultDeckService(deckDao, sessionService);
         cardService = new DefaultCardService(
@@ -35,51 +44,59 @@ public class DefaultCardServiceTest {
         );
 
         User user = new User("testi", "testi");
-        user.setId(999);
+        userDao.addUser(user);
         sessionService.setLoggedInUser(user);
 
         Deck deck = new Deck("test deck", "test description");
-        deck.setId(666);
+        deck.setOwner(user);
+        deckDao.addDeck(deck);
         deckService.setSelectedDeck(deck);
 
         card = new Card("test card", "test question", "test answer");
     }
 
     @Test
+    @Transactional
     public void nullCardCannotBeSaved() {
         assertFalse(cardService.saveCard(null));
     }
 
     @Test
+    @Transactional
     public void cardWithoutNameCannotBeSaved() {
         card.setName(null);
         assertFalse(cardService.saveCard(card));
     }
 
     @Test
+    @Transactional
     public void cardCannotBeAddedWithoutLoggingIn() {
         sessionService.setLoggedInUser(null);
         assertFalse(cardService.saveCard(card));
     }
 
     @Test
+    @Transactional
     public void cardCannotBeAddedWithoutSelectingDeck() {
         deckService.setSelectedDeck(null);
         assertFalse(cardService.saveCard(card));
     }
 
     @Test
+    @Transactional
     public void cardWithValidNameCanBeAdded() {
         assertTrue(cardService.saveCard(card));
     }
 
     @Test
+    @Transactional
     public void ownerAndDeckAreSetOnSave() {
         assertTrue(cardService.saveCard(card));
         assertEquals(deckService.getSelectedDeck(), card.getDeck());
     }
 
     @Test
+    @Transactional
     public void addedCardCanBeFoundByDeck() {
         assertTrue(cardService.saveCard(card));
         assertFalse(cardService.getForSelectedDeck().isEmpty());
@@ -87,6 +104,7 @@ public class DefaultCardServiceTest {
     }
 
     @Test
+    @Transactional
     public void getForSelectedDeckReturnsEmptyListOfNoDeckIsSelected() {
         assertTrue(cardService.saveCard(card));
         deckService.setSelectedDeck(null);
@@ -96,6 +114,7 @@ public class DefaultCardServiceTest {
     }
 
     @Test
+    @Transactional
     public void deletingSelectedCardRemovesIt() {
         assertTrue(cardService.saveCard(card));
         int countBefore = cardService.getForSelectedDeck().size();
@@ -105,6 +124,7 @@ public class DefaultCardServiceTest {
     }
 
     @Test
+    @Transactional
     public void deletingSelectedFailsIfSelectedIsNull() {
         cardService.setSelectedCard(null);
         assertFalse(cardService.deleteSelected());
