@@ -17,6 +17,12 @@ import javax.persistence.ManyToOne;
 @SQLDelete(sql = "update Card set deleted = now() where id = ?")
 public class Card extends BaseEntity {
 
+    public Card(String name, String question, String answer) {
+        this.name = name;
+        this.question = question;
+        this.answer = answer;
+    }
+
     @Column(nullable = false)
     @Getter
     @Setter
