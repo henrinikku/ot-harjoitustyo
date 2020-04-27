@@ -16,4 +16,5 @@
 |  20.4.   | 2h 30min      | pakan poisto, soft delete käyttöön, refaktorointia, testejä                  |
 |  21.4.   | 30min         | bugikorjaus                                                                  |
 |  27.4.   | 2h 30min      | korttien listaus, lisäys, muokkaus ja poisto                                 |
-| **yht.** | **30h 30min** |                                                                              |
+|  28.4.   | 2h 30min      | testien säätämistä                                                           |
+| **yht.** | **33h**       |                                                                              |
