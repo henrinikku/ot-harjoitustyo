@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+/**
+ * Base class for all entities.
+ *
+ * Provides a primary key field and timestamps for creation and deletion.
+ */
 @MappedSuperclass
 public abstract class BaseEntity {
 

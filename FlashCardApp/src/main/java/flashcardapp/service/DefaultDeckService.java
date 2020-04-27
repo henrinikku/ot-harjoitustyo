@@ -1,7 +1,6 @@
 package flashcardapp.service;
 
 import flashcardapp.dao.DeckDao;
-import flashcardapp.model.Card;
 import flashcardapp.model.Deck;
 import flashcardapp.model.User;
 import lombok.Getter;
@@ -15,6 +14,9 @@ import java.util.List;
 
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 
+/**
+ * Encapsulates Deck-related business logic.
+ */
 @Service
 public class DefaultDeckService implements DeckService {
 
@@ -25,6 +27,12 @@ public class DefaultDeckService implements DeckService {
     @Setter
     private Deck selectedDeck;
 
+    /**
+     * Used to inject dependencies.
+     *
+     * @param deckDao        Object implementing the DeckDao-interface
+     * @param sessionService Object implementing the SessionService-interface
+     */
     @Autowired
     public DefaultDeckService(
         @NonNull DeckDao deckDao,
@@ -34,6 +42,13 @@ public class DefaultDeckService implements DeckService {
         this.sessionService = sessionService;
     }
 
+    /**
+     * Validates and saves the given deck after setting the logged in user as
+     * its owner.
+     *
+     * @param deck The Deck-object to be saved.
+     * @return a boolean value indicating whether the operation was successful.
+     */
     @Override
     public boolean addDeck(Deck deck) {
         User user = sessionService.getLoggedInUser();
@@ -44,11 +59,22 @@ public class DefaultDeckService implements DeckService {
         return deckDao.addDeck(deck);
     }
 
+    /**
+     * Validates the given name. I.e. ensures it is not empty or in use.
+     *
+     * @param name The name to validate.
+     * @return true if the name is valid, false if not.
+     */
     @Override
     public boolean validateName(String name) {
         return !isNullOrWhitespace(name) && deckDao.getByName(name) == null;
     }
 
+    /**
+     * Retrieves all decks owned by the logged in user.
+     *
+     * @return list of decks owned by the logged in user.
+     */
     @Override
     public List<Deck> getAll() {
         User user = sessionService.getLoggedInUser();
@@ -57,6 +83,12 @@ public class DefaultDeckService implements DeckService {
             : deckDao.getByUserId(user.getId());
     }
 
+    /**
+     * Deletes the given deck.
+     *
+     * @param deck The deck to be deleted.
+     * @return a boolean value indicating whether the operation was successful.
+     */
     @Override
     public boolean deleteDeck(Deck deck) {
         return deck != null
@@ -64,6 +96,11 @@ public class DefaultDeckService implements DeckService {
             && deckDao.deleteById(deck.getId());
     }
 
+    /**
+     * Deletes the selected deck.
+     *
+     * @return a boolean value indicating whether the operation was successful.
+     */
     @Override
     public boolean deleteSelected() {
         boolean deleted = deleteDeck(getSelectedDeck());
