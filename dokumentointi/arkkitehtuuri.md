@@ -25,6 +25,7 @@ Kun kirjautumaton käyttäjä kirjoittaa olemassaolevan käyttäjän käyttäjä
 ## Sovelluslogiikka
 
 Sovelluksen keskeiset käsitteet ovat käyttäjä ([User](https://github.com/henrinikku/ot-harjoitustyo/blob/master/FlashCardApp/src/main/java/flashcardapp/model/User.java)), pakka ([Deck](https://github.com/henrinikku/ot-harjoitustyo/blob/master/FlashCardApp/src/main/java/flashcardapp/model/Deck.java)) ja kortti ([Card](https://github.com/henrinikku/ot-harjoitustyo/blob/master/FlashCardApp/src/main/java/flashcardapp/model/Card.java)). Käyttäjät omistavat ja voivat opiskella pakkoja. Pakkoihin kuuluu kortteja, joita käyttäjät voivat myös hallinnoida.
+
 ![luokkakaavio](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/luokkakaavio.png)
 
 Sovelluslogiikasta vastaavat pakkauksessa _flashcardapp.service_ sijaitsevat service-luokat, jotka injektoidaan käyttöliittymän logiikasta vastaaville controller-luokille automaattisesti kunkin näkymän alustuksen yhteydessä.
