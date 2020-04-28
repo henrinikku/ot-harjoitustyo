@@ -9,6 +9,9 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Represents a single deck.
+ */
 @Entity
 @NoArgsConstructor
 @Where(clause = "deleted is null")
@@ -39,6 +42,11 @@ public class Deck extends BaseEntity {
     @Setter
     private List<Card> cards;
 
+    /**
+     * Returns a string representation of the deck.
+     *
+     * @return a string representation of the deck i.e. its name
+     */
     @Override
     public String toString() {
         return getName();
