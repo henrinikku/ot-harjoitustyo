@@ -21,10 +21,13 @@ Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimm√
 Komennot tulee suorittaa kaniossa FlashCardApp.
 
 ### Asennus
+
 Riippuvuuksien asennus
+
 ```
 mvn clean install
 ```
+
 ### Suoritus
 
 Suoritus komentorivilt√§
@@ -38,10 +41,13 @@ Suoritettavan jar-tiedoston generointi kansion _target_ alle
 ```
 mvn package
 ```
+
 Jar-tiedoston suoritus
+
 ```
 java -jar target/FlashCardApp-1.0-SNAPSHOT.jar
 ```
+
 ### Testaus
 
 Testien suoritus
@@ -55,9 +61,19 @@ Testikattavuusraportin generointi
 ```
 mvn test jacoco:report
 ```
+
 ### Checkstyle
 
 Checkstyle-raportin generointi
+
 ```
 mvn jxr:jxr checkstyle:checkstyle
+```
+
+### Dokumentaatio
+
+JavaDocin generointi
+
+```
+mvn javadoc:javadoc
 ```
