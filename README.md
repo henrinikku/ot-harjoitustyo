@@ -11,6 +11,7 @@ Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimm�
 - [Arkkitehtuurikuvaus](dokumentointi/arkkitehtuuri.md)
 - [Vaatimusmäärittely](dokumentointi/vaatimusmaarittely.md)
 - [Työaikakirjanpito](dokumentointi/tuntikirjanpito.md)
+- [Käyttöohje](dokumentointi/kayttoohje.md)
 
 ## Releaset
 
