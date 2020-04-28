@@ -1,0 +1,23 @@
+@startuml
+
+object User {
+    username
+    password
+}
+
+object Deck {
+    name
+    description
+}
+
+object Card {
+    name
+    question
+    answer
+}
+
+User "1"--"*" Deck
+User "1"--"*" Card
+Deck "1"--"*" Card
+
+@enduml
