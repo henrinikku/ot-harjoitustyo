@@ -6,6 +6,7 @@ import flashcardapp.service.DeckService;
 import flashcardapp.service.SessionService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,24 +17,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
-import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Responsible for the UI logic of the index view
+ */
 @Component
 public class IndexController implements Initializable {
 
-    public Label lblWelcome;
-    public Label lblDecks;
-    public Button btnNewDeck;
-    public Button btnLogOut;
-    public ListView<Deck> lvDecks;
+    @FXML
+    private Label lblWelcome;
+    @FXML
+    private Label lblDecks;
+    @FXML
+    private Button btnNewDeck;
+    @FXML
+    private Button btnLogOut;
+    @FXML
+    private ListView<Deck> lvDecks;
 
     @Autowired
     private SessionService sessionService;
     @Autowired
     private DeckService deckService;
 
+    /**
+     * Sets up the view.
+     * @param url The url from which the view was loaded. Not used.
+     * @param resourceBundle Resource Bundle. Not used.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         checkUser();
@@ -64,6 +77,11 @@ public class IndexController implements Initializable {
         lvDecks.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
+    /**
+     * Fires when an item in the deck list is clicked.
+     *
+     * @param mouseEvent Caller event
+     */
     public void onDeckSelected(MouseEvent mouseEvent) {
         Deck selected = lvDecks.getSelectionModel().getSelectedItem();
         if (selected == null) {
@@ -73,10 +91,20 @@ public class IndexController implements Initializable {
         FlashCardUi.displaySingleDeckView();
     }
 
+    /**
+     * Handles click of the 'new deck' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onNewDeckClick(ActionEvent actionEvent) {
         FlashCardUi.displayNewDeckView();
     }
 
+    /**
+     * Handles click of the 'log out' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onLogOutClick(ActionEvent actionEvent) {
         sessionService.logOut();
         FlashCardUi.displayLoginView();

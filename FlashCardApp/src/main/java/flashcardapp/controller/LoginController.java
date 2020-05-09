@@ -5,6 +5,7 @@ import flashcardapp.service.SessionService;
 import flashcardapp.service.UserService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,25 +21,43 @@ import java.util.ResourceBundle;
 
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 
+/**
+ * Responsible for the UI logic of the login/register view
+ */
 @Component
 public class LoginController implements Initializable {
 
-    public Label lblLogInError;
-    public TextField txtLogInUsername;
-    public PasswordField txtPassword;
-    public Button btnLogIn;
-    public Label lblRegisterSuccess;
-    public Label lblRegisterError;
-    public TextField txtRegisterUsername;
-    public PasswordField txtRegisterPassword;
-    public PasswordField txtRegisterPasswordAgain;
-    public Button btnRegister;
+    @FXML
+    private Label lblLogInError;
+    @FXML
+    private TextField txtLogInUsername;
+    @FXML
+    private PasswordField txtPassword;
+    @FXML
+    private Button btnLogIn;
+    @FXML
+    private Label lblRegisterSuccess;
+    @FXML
+    private Label lblRegisterError;
+    @FXML
+    private TextField txtRegisterUsername;
+    @FXML
+    private PasswordField txtRegisterPassword;
+    @FXML
+    private PasswordField txtRegisterPasswordAgain;
+    @FXML
+    private Button btnRegister;
 
     @Autowired
     private UserService userService;
     @Autowired
     private SessionService sessionService;
 
+    /**
+     * Sets up the view.
+     * @param url The url from which the view was loaded. Not used.
+     * @param resourceBundle Resource Bundle. Not used.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Make the ui behave like a form
@@ -71,6 +90,11 @@ public class LoginController implements Initializable {
         }
     }
 
+    /**
+     * Handles click of the 'login' button
+     *
+     * @param mouseEvent Caller event
+     */
     public void onLoginClicked(ActionEvent mouseEvent) {
         String username = txtLogInUsername.getText();
         String password = txtPassword.getText();
@@ -84,6 +108,11 @@ public class LoginController implements Initializable {
         FlashCardUi.displayIndexView();
     }
 
+    /**
+     * Handles click of the 'register' button
+     *
+     * @param mouseEvent Caller event
+     */
     public void onRegisterClicked(ActionEvent mouseEvent) {
         String username = txtRegisterUsername.getText();
         String password = txtRegisterPassword.getText();

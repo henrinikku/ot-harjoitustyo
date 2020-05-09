@@ -6,6 +6,7 @@ import flashcardapp.service.CardService;
 import flashcardapp.service.DeckService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,23 +22,39 @@ import java.util.ResourceBundle;
 
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
 
+/**
+ * Responsible for the UI logic of the single deck view
+ */
 @Component
 public class DeckController implements Initializable {
 
-    public Label lblHeader;
-    public Label lblCards;
-    public Label lblDescription;
-    public Button btnStudy;
-    public Button btnNewCard;
-    public Button btnCancel;
-    public Button btnDelete;
-    public ListView<Card> lvCards;
+    @FXML
+    private Label lblHeader;
+    @FXML
+    private Label lblCards;
+    @FXML
+    private Label lblDescription;
+    @FXML
+    private Button btnStudy;
+    @FXML
+    private Button btnNewCard;
+    @FXML
+    private Button btnCancel;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private ListView<Card> lvCards;
 
     @Autowired
     private CardService cardService;
     @Autowired
     private DeckService deckService;
 
+    /**
+     * Sets up the view.
+     * @param url The url from which the view was loaded. Not used.
+     * @param resourceBundle Resource Bundle. Not used.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Deck deck = deckService.getSelectedDeck();
@@ -65,21 +82,41 @@ public class DeckController implements Initializable {
         }
     }
 
+    /**
+     * Handles click of the 'cancel' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onCancelClick(ActionEvent actionEvent) {
         deckService.setSelectedDeck(null);
         FlashCardUi.displayIndexView();
     }
 
+    /**
+     * Handles click of the 'delete' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onDeleteClick(ActionEvent actionEvent) {
         deckService.deleteSelected();
         FlashCardUi.displayIndexView();
     }
 
+    /**
+     * Handles click of the 'new card' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onNewCardClick(ActionEvent actionEvent) {
         cardService.setSelectedCard(null);
         FlashCardUi.displaySingleCardView();
     }
 
+    /**
+     * Fires when an item in the card list is clicked.
+     *
+     * @param mouseEvent Caller event
+     */
     public void onCardClicked(MouseEvent mouseEvent) {
         Card selected = lvCards.getSelectionModel().getSelectedItem();
         if (selected == null) {
@@ -89,6 +126,11 @@ public class DeckController implements Initializable {
         FlashCardUi.displaySingleCardView();
     }
 
+    /**
+     * Handles click of the 'study deck' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onStudyClick(ActionEvent actionEvent) {
         if (deckService.getSelectedDeck() != null) {
             FlashCardUi.displayStudyView();

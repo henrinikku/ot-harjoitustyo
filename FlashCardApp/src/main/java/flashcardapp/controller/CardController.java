@@ -1,12 +1,10 @@
 package flashcardapp.controller;
 
 import flashcardapp.model.Card;
-import flashcardapp.model.Deck;
 import flashcardapp.service.CardService;
-import flashcardapp.service.DeckService;
-import flashcardapp.service.SessionService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,21 +16,37 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Responsible for the UI logic of the single card view
+ */
 @Component
 public class CardController implements Initializable {
 
-    public Label lblHeader;
-    public Label lblError;
-    public TextField txtName;
-    public TextField txtQuestion;
-    public TextArea txtAnswer;
-    public Button btnSave;
-    public Button btnCancel;
-    public Button btnDelete;
+    @FXML
+    private Label lblHeader;
+    @FXML
+    private Label lblError;
+    @FXML
+    private TextField txtName;
+    @FXML
+    private TextField txtQuestion;
+    @FXML
+    private TextArea txtAnswer;
+    @FXML
+    private Button btnSave;
+    @FXML
+    private Button btnCancel;
+    @FXML
+    private Button btnDelete;
 
     @Autowired
     private CardService cardService;
 
+    /**
+     * Sets up the view.
+     * @param url The url from which the view was loaded. Not used.
+     * @param resourceBundle Resource Bundle. Not used.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Card card = cardService.getSelectedCard();
@@ -60,6 +74,11 @@ public class CardController implements Initializable {
         lblError.setText(message);
     }
 
+    /**
+     * Handles click of the 'Save' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onSaveClick(ActionEvent actionEvent) {
         Card card = cardService.getSelectedCard();
         card = (card != null) ? card : new Card();
@@ -74,10 +93,20 @@ public class CardController implements Initializable {
         }
     }
 
+    /**
+     * Handles click of the 'Cancel' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onCancelClick(ActionEvent actionEvent) {
         FlashCardUi.displaySingleDeckView();
     }
 
+    /**
+     * Handles click of the 'delete' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onDeleteClick(ActionEvent actionEvent) {
         if (cardService.deleteSelected()) {
             FlashCardUi.displaySingleDeckView();

@@ -2,9 +2,9 @@ package flashcardapp.controller;
 
 import flashcardapp.model.Deck;
 import flashcardapp.service.DeckService;
-import flashcardapp.service.SessionService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,24 +16,40 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Responsible for the UI logic of the deck creation view
+ */
 @Component
 public class NewDeckController implements Initializable {
 
-    public Label lblError;
-    public Button btnCreate;
-    public Button btnCancel;
-    public TextField txtName;
-    public TextArea txtDescription;
+    @FXML
+    private Label lblError;
+    @FXML
+    private Button btnCreate;
+    @FXML
+    private Button btnCancel;
+    @FXML
+    private TextField txtName;
+    @FXML
+    private TextArea txtDescription;
 
     @Autowired
     private DeckService deckService;
-    @Autowired
-    private SessionService sessionService;
 
+    /**
+     * Sets up the view.
+     * @param url The url from which the view was loaded. Not used.
+     * @param resourceBundle Resource Bundle. Not used.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
+    /**
+     * Handles click of the 'create' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onCreateClick(ActionEvent actionEvent) {
         Deck deck = new Deck(txtName.getText(), txtDescription.getText());
         if (deckService.addDeck(deck)) {
@@ -43,6 +59,11 @@ public class NewDeckController implements Initializable {
         }
     }
 
+    /**
+     * Handles click of the 'cancel' button
+     *
+     * @param actionEvent Caller event
+     */
     public void onCancelClick(ActionEvent actionEvent) {
         FlashCardUi.displayIndexView();
     }
