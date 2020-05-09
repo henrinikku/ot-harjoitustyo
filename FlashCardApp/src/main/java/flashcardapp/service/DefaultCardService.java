@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
+import static flashcardapp.util.StringUtils.isTooLong;
 
 /**
  * Encapsulates Card-related business logic
@@ -116,7 +117,10 @@ public class DefaultCardService implements CardService {
             && card.getDeck() != null
             && card.getOwner() != null
             && !isNullOrWhitespace(card.getName())
+            && !isTooLong(card.getName())
             && !isNullOrWhitespace(card.getQuestion())
-            && !isNullOrWhitespace(card.getAnswer());
+            && !isTooLong(card.getQuestion())
+            && !isNullOrWhitespace(card.getAnswer())
+            && !isTooLong(card.getAnswer());
     }
 }

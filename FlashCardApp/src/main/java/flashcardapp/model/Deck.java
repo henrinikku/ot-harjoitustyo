@@ -18,6 +18,12 @@ import java.util.List;
 @SQLDelete(sql = "update Deck set deleted = now() where id = ?")
 public class Deck extends BaseEntity {
 
+    /**
+     * Assigns the given name and description to the deck.
+     *
+     * @param name the name of the deck
+     * @param description description for the deck
+     */
     public Deck(String name, String description) {
         this.name = name;
         this.description = description;

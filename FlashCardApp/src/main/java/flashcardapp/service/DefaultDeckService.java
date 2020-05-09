@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
+import static flashcardapp.util.StringUtils.isTooLong;
 
 /**
  * Encapsulates Deck-related business logic.
@@ -52,7 +53,10 @@ public class DefaultDeckService implements DeckService {
     @Override
     public boolean addDeck(Deck deck) {
         User user = sessionService.getLoggedInUser();
-        if (user == null || !validateName(deck.getName())) {
+        if (user == null
+            || !validateName(deck.getName())
+            || isTooLong(deck.getDescription())
+        ) {
             return false;
         }
         deck.setOwner(user);
@@ -67,7 +71,9 @@ public class DefaultDeckService implements DeckService {
      */
     @Override
     public boolean validateName(String name) {
-        return !isNullOrWhitespace(name) && deckDao.getByName(name) == null;
+        return !isNullOrWhitespace(name)
+            && !isTooLong(name)
+            && deckDao.getByName(name) == null;
     }
 
     /**

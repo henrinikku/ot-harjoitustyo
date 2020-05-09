@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import static flashcardapp.util.StringUtils.isNullOrWhitespace;
+import static flashcardapp.util.StringUtils.isTooLong;
 
 /**
  * Encapsulates user-related business logic.
@@ -57,7 +58,7 @@ public class DefaultUserService implements UserService {
      * @param username The username to validate.
      * @param password The password to validate.
      * @return a boolean value indicating whether the given username
-     *         and password match.
+     * and password match.
      */
     @Override
     public boolean checkCredentials(
@@ -79,7 +80,9 @@ public class DefaultUserService implements UserService {
      */
     @Override
     public boolean validateUsername(@NonNull String username) {
-        return !username.isBlank() && userDao.getByUsername(username) == null;
+        return !username.isBlank()
+            && !isTooLong(username)
+            && userDao.getByUsername(username) == null;
     }
 
     /**

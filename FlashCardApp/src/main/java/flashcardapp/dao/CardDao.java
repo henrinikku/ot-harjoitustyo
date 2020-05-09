@@ -1,7 +1,6 @@
 package flashcardapp.dao;
 
 import flashcardapp.model.Card;
-import flashcardapp.model.Deck;
 
 import java.util.List;
 

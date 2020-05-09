@@ -11,12 +11,21 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+/**
+ * Represents a single user
+ */
 @Entity
 @NoArgsConstructor
 @Where(clause = "deleted is null")
 @SQLDelete(sql = "update User set deleted = now() where id = ?")
 public class User extends BaseEntity {
 
+    /**
+     * Creates an user object with the given username and password
+     *
+     * @param username the users username
+     * @param password the users password
+     */
     public User(String username, String password) {
         this.username = username;
         this.password = password;

@@ -16,6 +16,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Responsible for loading and displaying views.
+ */
 @EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 @Component
 public class FlashCardUi extends Application {
@@ -23,6 +26,9 @@ public class FlashCardUi extends Application {
     private static ConfigurableApplicationContext applicationContext;
     private static Stage stage;
 
+    /**
+     * Sets up the application, i.e., loads spring app context.
+     */
     @Override
     public void init() {
         applicationContext = new ClassPathXmlApplicationContext(
@@ -30,6 +36,11 @@ public class FlashCardUi extends Application {
         );
     }
 
+    /**
+     * Sets up the ui and displays the login view.
+     *
+     * @param stage
+     */
     @Override
     public void start(Stage stage) {
         FlashCardUi.stage = stage;
@@ -38,30 +49,53 @@ public class FlashCardUi extends Application {
         displayLoginView();
     }
 
+    /**
+     * Displays the login view
+     */
     public static void displayLoginView() {
         displayView(Views.loginView());
     }
 
+    /**
+     * Displays the default view for logged in user
+     */
     public static void displayIndexView() {
         displayView(Views.indexView());
     }
 
+    /**
+     * Displays the form for creating new decks
+     */
     public static void displayNewDeckView() {
         displayView(Views.newDeckView());
     }
 
+    /**
+     * Displays the single deck view
+     */
     public static void displaySingleDeckView() {
         displayView(Views.singleDeckView());
     }
 
+    /**
+     * Displays the single card view
+     */
     public static void displaySingleCardView() {
         displayView(Views.singleCardView());
     }
 
+    /**
+     * Displays the view for studying some deck
+     */
     public static void displayStudyView() {
         displayView(Views.studyView());
     }
 
+    /**
+     * Displays the given view and and initializes its controller class
+     *
+     * @param url Path to the view to be displayed
+     */
     @SneakyThrows(IOException.class)
     private static void displayView(URL url) {
         FXMLLoader loader = new FXMLLoader(url);
@@ -71,13 +105,12 @@ public class FlashCardUi extends Application {
         stage.show();
     }
 
+    /**
+     * Closes all connections and stops the application.
+     */
     @Override
     public void stop() {
         applicationContext.close();
         Platform.exit();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

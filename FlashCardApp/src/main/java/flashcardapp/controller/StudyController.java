@@ -2,7 +2,6 @@ package flashcardapp.controller;
 
 import flashcardapp.model.Card;
 import flashcardapp.service.CardService;
-import flashcardapp.service.DeckService;
 import flashcardapp.view.FlashCardUi;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -17,6 +16,9 @@ import java.util.ResourceBundle;
 @Component
 public class StudyController implements Initializable {
 
+    /**
+     *
+     */
     public Label lblHeader;
     public Label lblQuestion;
     public Label lblAnswer;
