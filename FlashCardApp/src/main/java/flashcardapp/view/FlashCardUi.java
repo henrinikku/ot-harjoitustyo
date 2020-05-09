@@ -39,7 +39,7 @@ public class FlashCardUi extends Application {
     /**
      * Sets up the ui and displays the login view.
      *
-     * @param stage
+     * @param stage The main stage
      */
     @Override
     public void start(Stage stage) {
