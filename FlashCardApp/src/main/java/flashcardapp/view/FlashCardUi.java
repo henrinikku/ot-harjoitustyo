@@ -58,6 +58,10 @@ public class FlashCardUi extends Application {
         displayView(Views.singleCardView());
     }
 
+    public static void displayStudyView() {
+        displayView(Views.studyView());
+    }
+
     @SneakyThrows(IOException.class)
     private static void displayView(URL url) {
         FXMLLoader loader = new FXMLLoader(url);

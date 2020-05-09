@@ -11,5 +11,7 @@ public interface CardDao extends Dao {
 
     boolean deleteCard(Card card);
 
+    Card getRandomFromDeck(long deckId);
+
     List<Card> getByDeck(long deckId);
 }

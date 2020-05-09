@@ -3,6 +3,7 @@ package flashcardapp.dao;
 import flashcardapp.model.Card;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -19,6 +20,14 @@ public class DefaultCardDao extends BaseDao<Card> implements CardDao {
     @Transactional
     public boolean deleteCard(Card card) {
         return deleteByPk(card.getId());
+    }
+
+    @Override
+    @Transactional
+    public Card getRandomFromDeck(long deckId) {
+        Query query =
+            createQuery("from Card where deck.id = ?0 order by rand()");
+        return getFirst(query.setMaxResults(1).setParameter(0, deckId));
     }
 
     @Override

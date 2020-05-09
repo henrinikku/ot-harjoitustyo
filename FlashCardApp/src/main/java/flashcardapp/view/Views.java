@@ -24,6 +24,10 @@ public class Views {
         return getPathFor("fxml/Card.fxml");
     }
 
+    public static URL studyView() {
+        return getPathFor("fxml/Study.fxml");
+    }
+
     private static URL getPathFor(String path) {
         return Views.class.getClassLoader().getResource(path);
     }

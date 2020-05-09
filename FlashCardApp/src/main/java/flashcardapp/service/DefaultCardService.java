@@ -28,11 +28,14 @@ public class DefaultCardService implements CardService {
     @Setter
     private Card selectedCard;
 
+    @Getter
+    private Card activeCard;
+
     /**
      * Used to inject dependencies.
      *
-     * @param cardDao Object implementing the CardDao-interface
-     * @param deckService Object implementing the DeckService-interface
+     * @param cardDao        Object implementing the CardDao-interface
+     * @param deckService    Object implementing the DeckService-interface
      * @param sessionService Object implementing the SessionService-interface
      */
     @Autowired
@@ -89,6 +92,23 @@ public class DefaultCardService implements CardService {
         card.setDeck(deckService.getSelectedDeck());
         card.setOwner(sessionService.getLoggedInUser());
         return validateCard(card) && cardDao.addOrUpdateCard(card);
+    }
+
+    /**
+     * Retrieves a random card belonging to the selected deck and sets it as
+     * the active deck.
+     *
+     * @return Random card from the selected deck, or null if no deck is
+     * selected
+     */
+    @Override
+    public Card nextCard() {
+        Deck deck = deckService.getSelectedDeck();
+        Card card = deck == null || deck.getId() == 0
+            ? null
+            : cardDao.getRandomFromDeck(deck.getId());
+        activeCard = card;
+        return card;
     }
 
     private boolean validateCard(Card card) {

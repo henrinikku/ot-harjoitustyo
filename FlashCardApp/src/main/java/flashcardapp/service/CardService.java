@@ -9,6 +9,10 @@ public interface CardService {
 
     boolean saveCard(Card card);
 
+    Card getActiveCard();
+
+    Card nextCard();
+
     Card getSelectedCard();
 
     void setSelectedCard(Card card);

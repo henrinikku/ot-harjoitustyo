@@ -28,6 +28,11 @@ public class FakeCardDao implements CardDao {
     }
 
     @Override
+    public Card getRandomFromDeck(long deckId) {
+        return null;
+    }
+
+    @Override
     public List<Card> getByDeck(long deckId) {
         return cards
             .values()

@@ -13,7 +13,8 @@
     <Label fx:id="lblDescription" alignment="TOP_LEFT" layoutX="50.0" layoutY="100.0" prefHeight="70.0" prefWidth="500.0" text="No description :(" />
     <Label fx:id="lblCards" alignment="TOP_LEFT" layoutX="50.0" layoutY="175.0" prefHeight="25.0" prefWidth="500.0" text="Cards" />
     <ListView fx:id="lvCards" layoutX="50.0" layoutY="200.0" prefHeight="125.0" prefWidth="500.0" onMouseClicked="#onCardClicked" />
-    <Button fx:id="btnNewCard" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#onNewCardClick" prefHeight="30.0" prefWidth="100.0" text="Add card" />
-    <Button fx:id="btnDelete" layoutX="162.5" layoutY="340.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="30.0" prefWidth="100.0" text="Delete deck" />
-    <Button fx:id="btnCancel" layoutX="275.0" layoutY="340.0" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
+    <Button fx:id="btnStudy" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#onStudyClick" prefHeight="30.0" prefWidth="100.0" text="Study deck" />
+    <Button fx:id="btnNewCard" layoutX="162.5" layoutY="340.0" mnemonicParsing="false" onAction="#onNewCardClick" prefHeight="30.0" prefWidth="100.0" text="Add card" />
+    <Button fx:id="btnDelete" layoutX="275.0" layoutY="340.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="30.0" prefWidth="100.0" text="Delete deck" />
+    <Button fx:id="btnCancel" layoutX="387.5" layoutY="340.0" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
 </AnchorPane>

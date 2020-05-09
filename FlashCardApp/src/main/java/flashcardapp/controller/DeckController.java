@@ -27,6 +27,7 @@ public class DeckController implements Initializable {
     public Label lblHeader;
     public Label lblCards;
     public Label lblDescription;
+    public Button btnStudy;
     public Button btnNewCard;
     public Button btnCancel;
     public Button btnDelete;
@@ -44,7 +45,7 @@ public class DeckController implements Initializable {
             return;
         }
         displayDeckInfo(deck);
-        displayCards(deck);
+        displayCards();
     }
 
     private void displayDeckInfo(Deck deck) {
@@ -54,10 +55,11 @@ public class DeckController implements Initializable {
         }
     }
 
-    private void displayCards(Deck deck) {
+    private void displayCards() {
+        List<Card> cards = cardService.getForSelectedDeck();
         lvCards.getItems().clear();
         lvCards.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        List<Card> cards = cardService.getForSelectedDeck();
+        btnStudy.setDisable(cards == null || cards.isEmpty());
         if (cards != null) {
             lvCards.getItems().addAll(cards);
         }
@@ -85,5 +87,11 @@ public class DeckController implements Initializable {
         }
         cardService.setSelectedCard(selected);
         FlashCardUi.displaySingleCardView();
+    }
+
+    public void onStudyClick(ActionEvent actionEvent) {
+        if (deckService.getSelectedDeck() != null) {
+            FlashCardUi.displayStudyView();
+        }
     }
 }
