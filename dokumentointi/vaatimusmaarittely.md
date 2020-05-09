@@ -32,7 +32,7 @@ Aluksi ainoa käyttäjärooli on _normaali käyttäjä_. On mahdollista, että s
   - voi lisätä, muokata sekä poistaa kortteja
     - kortit ovat ainakin aluksi pakkakohtaisia
     - kortille on pakko antaa kysymys ja vastaus
-- [ ] käyttäjä voi opiskella muistikorttipakkoja
+- [x] käyttäjä voi opiskella muistikorttipakkoja
   - kortteja näytetään käyttäjälle näennäisen satunnaisessa järjestyksessä
   - kortista näytetään aluksi kysymys
   - vastaus paljastetaan, kun käyttäjä painaa nappia
