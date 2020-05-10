@@ -18,5 +18,6 @@
 |  26.4.   | 2h 30min       | korttien listaus, lisäys, muokkaus ja poisto                                 |
 |  27.4.   | 2h 30min       | testien säätämistä                                                           |
 |  28.4.   | 3h             | arkkitehtuurikuvauksen edistäminen, javadoc-kuvauksia, käyttöohje            |
-|  28.4.   | 3h 30min       | korttipakkojen opiskelun toteutus, javadoc-kuvaukset loppuun                 |
-| **yht.** | **39h 30min**  |                                                                              |
+|  9.5.    | 3h 30min       | korttipakkojen opiskelun toteutus, javadoc-kuvaukset loppuun                 |
+|  10.5.   | 3h 30min       | testejä, testausdokumentti, muiden dokumenttien viimeistely                  |
+| **yht.** | **43h**        |                                                                              |
