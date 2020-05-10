@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [FlashCardApp-1.0-SNAPSHOT.jar](https://github.com/henrinikku/ot-harjoitustyo/releases/download/v1.1/FlashCardApp-1.0-SNAPSHOT.jar).
+Lataa tiedosto [FlashCardApp.jar](https://github.com/henrinikku/ot-harjoitustyo/releases/download/v1.2/FlashCardApp.jar).
 
 ## Konfigurointi
 
@@ -11,7 +11,7 @@ Sovellus ei vaadi konfigurointia. Varmista varmuuden vuoksi, että samassa kansi
 Aja komento
 
 ```
-java -jar FlashCardApp-1.0-SNAPSHOT.jar
+java -jar FlashCardApp.jar
 ```
 
 ## Kirjautuminen ja käyttäjän luominen
