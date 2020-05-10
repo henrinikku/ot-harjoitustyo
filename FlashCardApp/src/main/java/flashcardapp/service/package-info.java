@@ -1,5 +1,5 @@
 /**
- * Classes in this package are responsible for the business logic.
+ * Classes in this package are responsible for business logic.
  */
 
 package flashcardapp.service;
