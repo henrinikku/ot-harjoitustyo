@@ -12,11 +12,13 @@ Tietokantatiedosto generoidaan kansion _data_ alle, kun sovellus ajetaan ensimm�
 - [Vaatimusmäärittely](dokumentointi/vaatimusmaarittely.md)
 - [Työaikakirjanpito](dokumentointi/tuntikirjanpito.md)
 - [Käyttöohje](dokumentointi/kayttoohje.md)
+- [Testausdokumentti](dokumentointi/testaus.md)
 
 ## Releaset
 
 - [Viikko 5](https://github.com/henrinikku/ot-harjoitustyo/releases/tag/v1.0)
 - [Viikko 6](https://github.com/henrinikku/ot-harjoitustyo/releases/tag/v1.1)
+- [Loppupalautus](https://github.com/henrinikku/ot-harjoitustyo/releases/tag/v1.2)
 
 ## Komentorivikomennot
 
@@ -47,7 +49,7 @@ mvn package
 Jar-tiedoston suoritus
 
 ```
-java -jar target/FlashCardApp-1.0-SNAPSHOT.jar
+java -jar target/FlashCardApp.jar
 ```
 
 ### Testaus
