@@ -6,6 +6,7 @@ import flashcardapp.dao.UserDao;
 import flashcardapp.model.Card;
 import flashcardapp.model.Deck;
 import flashcardapp.model.User;
+import flashcardapp.util.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -57,7 +58,7 @@ public class DefaultCardServiceTest {
 
     private static String getTooLongString() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < StringUtils.STRING_MAX_LENGTH * 2; i++) {
             result.append("a");
         }
         return result.toString();
@@ -175,5 +176,12 @@ public class DefaultCardServiceTest {
         Card next = cardService.nextCard();
         assertNotNull(next);
         assertEquals(next.getId(), card.getId());
+    }
+
+    @Test
+    @Transactional
+    public void cardWithTooLongQuestionIsNotSaved() {
+        Card card = new Card("test", getTooLongString(), "test");
+        assertFalse(cardService.saveCard(card));
     }
 }

@@ -2,6 +2,7 @@ package flashcardapp.service;
 
 import flashcardapp.dao.UserDao;
 import flashcardapp.model.User;
+import flashcardapp.util.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -89,5 +90,15 @@ public class DefaultUserServiceTest {
         assertTrue(
             userService.checkCredentials(user.getUsername(), "testi123")
         );
+    }
+
+    @Test
+    @Transactional
+    public void userWithTooLongUsernameIsNotAccepted() {
+        StringBuilder username = new StringBuilder();
+        for (int i = 0; i < StringUtils.STRING_MAX_LENGTH * 2; i++) {
+            username.append("a");
+        }
+        assertFalse(userService.validateUsername(username.toString()));
     }
 }

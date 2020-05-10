@@ -13,12 +13,31 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void blankStringIsChecked() {
+    public void emptyStringIsChecked() {
         assertTrue(StringUtils.isNullOrWhitespace(""));
+    }
+
+    @Test
+    public void whiteSpaceIsNotAllowed() {
+        assertTrue(StringUtils.isNullOrWhitespace("   "));
     }
 
     @Test
     public void nonEmptyStringIsAllowed() {
         assertFalse(StringUtils.isNullOrWhitespace("test"));
+    }
+
+    @Test
+    public void nullStringIsNotTooLong() {
+        assertFalse(StringUtils.isTooLong(null));
+    }
+
+    @Test
+    public void tooLongStringIsNotAllowed() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < StringUtils.STRING_MAX_LENGTH * 2; i++) {
+            builder.append("a");
+        }
+        assertTrue(StringUtils.isTooLong(builder.toString()));
     }
 }

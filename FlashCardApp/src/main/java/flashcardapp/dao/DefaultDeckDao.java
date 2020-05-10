@@ -25,7 +25,7 @@ public class DefaultDeckDao extends BaseDao<Deck> implements DeckDao {
     @Override
     @Transactional
     public boolean addDeck(Deck deck) {
-        return persist(deck);
+        return deck != null && persist(deck);
     }
 
     /**
