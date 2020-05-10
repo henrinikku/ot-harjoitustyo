@@ -55,6 +55,14 @@ public class DefaultCardServiceTest {
         card = new Card("test card", "test question", "test answer");
     }
 
+    private static String getTooLongString() {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < 1000; i++) {
+            result.append("a");
+        }
+        return result.toString();
+    }
+
     @Test
     @Transactional
     public void nullCardCannotBeSaved() {
@@ -65,6 +73,20 @@ public class DefaultCardServiceTest {
     @Transactional
     public void cardWithoutNameCannotBeSaved() {
         card.setName(null);
+        assertFalse(cardService.saveCard(card));
+    }
+
+    @Test
+    @Transactional
+    public void cardWithoutQuestionCannotBeSaved() {
+        card.setQuestion(null);
+        assertFalse(cardService.saveCard(card));
+    }
+
+    @Test
+    @Transactional
+    public void cardWithoutAnswerCannotBeSaved() {
+        card.setAnswer(null);
         assertFalse(cardService.saveCard(card));
     }
 
@@ -128,5 +150,30 @@ public class DefaultCardServiceTest {
     public void deletingSelectedFailsIfSelectedIsNull() {
         cardService.setSelectedCard(null);
         assertFalse(cardService.deleteSelected());
+    }
+
+    @Test
+    @Transactional
+    public void nextCardReturnsNullIfNoCardsExist() {
+        assertNull(cardService.nextCard());
+    }
+
+    @Test
+    @Transactional
+    public void nextCardReturnsNullIfNoDeckIsSelected() {
+        Card card = new Card("test", "test", "test");
+        cardService.saveCard(card);
+        deckService.setSelectedDeck(null);
+        assertNull(cardService.nextCard());
+    }
+
+    @Test
+    @Transactional
+    public void nextCardReturnsCardIfItExists() {
+        Card card = new Card("test", "test", "test");
+        cardService.saveCard(card);
+        Card next = cardService.nextCard();
+        assertNotNull(next);
+        assertEquals(next.getId(), card.getId());
     }
 }
