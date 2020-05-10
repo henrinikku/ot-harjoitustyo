@@ -1,7 +1,5 @@
 package flashcardapp.service;
 
-import flashcardapp.dao.DefaultUserDao;
-import flashcardapp.dao.FakeUserDao;
 import flashcardapp.dao.UserDao;
 import flashcardapp.model.User;
 import org.junit.Before;

@@ -1,13 +1,9 @@
 package flashcardapp.util;
 
-import flashcardapp.dao.FakeUserDao;
-import flashcardapp.model.User;
-import flashcardapp.service.DefaultUserService;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class StringUtilsTest {
 

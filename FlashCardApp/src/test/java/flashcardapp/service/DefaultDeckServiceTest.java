@@ -1,7 +1,6 @@
 package flashcardapp.service;
 
 import flashcardapp.dao.DeckDao;
-import flashcardapp.dao.FakeDeckDao;
 import flashcardapp.dao.UserDao;
 import flashcardapp.model.Deck;
 import flashcardapp.model.User;
