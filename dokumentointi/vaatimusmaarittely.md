@@ -8,6 +8,16 @@ Sovelluksen avulla rekisteröityneet käyttäjät voivat luoda ja hallinnoida mu
 
 Aluksi ainoa käyttäjärooli on _normaali käyttäjä_. On mahdollista, että sovellukseen lisätään myöhemmin jonkinlaisia pääkäyttäjiä. Myöhemmin, jos sovellukseen lisätään mahdollisuus katsella ja muokata muiden käyttäjien muistikorttipakkoja, voi olla tarpeen luoda käyttäjille pakkakohtaisia rooleja, kuten esimerkiksi _katselija_, _muokkaaja_ ja _omistaja_.
 
+## Käyttöliittymä
+
+Sovellus aukeaa näkymään, jossa voi luoda uusia käyttäjiä tai kirjautua sisään jo luodulla käyttäjällä. Kirjautunut käyttäjä ohjataan näkymään, jossa käyttäjä voi kirjautua ulos, tarkastella pakkojaan tai siirtyä luomaan uusia pakkoja.
+
+Yksittäisen pakan näkymästä käsin on mahdollista poistaa tarkasteltava pakka (ja samalla siihen kuuluvat kortit), opiskella pakan kortteja (mikäli niitä on lisätty vähintään 1), luoda pakkaan uusia kortteja sekä muokata vanhoja.
+
+Opiskelunäkymässä käyttäjälle näytetään satunnaisesti valittuja kortteja opiskeltavasta pakasta. Kortista näytetään aluksi pelkkä kysymys, ja vastauksen saa näkyviin nappia painamalla.
+
+Kirjautumisnäkymää lukuunottamatta kaikista näkymistä on mahdollista siirtyä edeltävään näkymään.
+
 ## Perusversion suunnitellut toiminnallisuudet
 
 ### Ennen kirjautumista
