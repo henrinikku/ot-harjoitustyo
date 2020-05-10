@@ -8,9 +8,10 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 /**
- * Provides database operations related to the Deck model
+ * Hibernate based implementation of the DeckDao interface
  *
  * @see flashcardapp.model.Deck
+ * @see flashcardapp.dao.DeckDao
  */
 @Repository
 public class DefaultDeckDao extends BaseDao<Deck> implements DeckDao {
@@ -30,7 +31,7 @@ public class DefaultDeckDao extends BaseDao<Deck> implements DeckDao {
     /**
      * Retrieves a deck by the given name.
      *
-     * @param name The name of the deck want to retrieve
+     * @param name Name of the deck want to retrieve
      * @return The deck the given name belongs to, or null.
      */
     @Override
@@ -56,7 +57,7 @@ public class DefaultDeckDao extends BaseDao<Deck> implements DeckDao {
     /**
      * Retrieves a list of decks belonging to the given user
      *
-     * @param userId The id of the user whose decks we want to retrieve.
+     * @param userId Id of the user whose decks we want to retrieve.
      * @return A list of decks belonging to the given user.
      */
     @Override

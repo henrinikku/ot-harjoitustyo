@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * Base class for all entities.
+ * Base class for all models.
  *
  * Provides a primary key field and timestamps for creation and deletion.
  */

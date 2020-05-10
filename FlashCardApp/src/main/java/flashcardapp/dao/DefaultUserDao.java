@@ -7,9 +7,10 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 /**
- * Provides database operations related to the User model
+ * Hibernate based implementation of the UserDao interface
  *
  * @see flashcardapp.model.User
+ * @see flashcardapp.dao.UserDao
  */
 @Repository
 public class DefaultUserDao extends BaseDao<User> implements UserDao {

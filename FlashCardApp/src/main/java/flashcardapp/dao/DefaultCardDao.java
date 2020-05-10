@@ -8,9 +8,10 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 /**
- * Provides database operations related to the Card model
+ * Hibernate based implementation of the CardDao interface
  *
  * @see flashcardapp.model.Card
+ * @see flashcardapp.dao.CardDao
  */
 @Repository
 public class DefaultCardDao extends BaseDao<Card> implements CardDao {

@@ -13,11 +13,11 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 /**
- * Base class for all Dao classes
+ * Base class for all Hibernate based Dao classes
  *
  * @see flashcardapp.model.BaseEntity
  *
- * @param <T> The model class for which this dao class provides db operations
+ * @param <T> The model class for which the dao class provides db operations
  */
 @Repository
 public abstract class BaseDao<T extends BaseEntity> implements Dao {
