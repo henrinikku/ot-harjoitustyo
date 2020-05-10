@@ -52,6 +52,8 @@ java -jar target/FlashCardApp-1.0-SNAPSHOT.jar
 
 ### Testaus
 
+Huom! Testejä ajettaessa tulostuu virheilmoituksia. Ne eivät ole merkki testien kaatumisesta, vaan ne tulostetaan, kun odotettuja virhetilanteita käsitellään.
+
 Testien suoritus
 
 ```
