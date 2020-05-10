@@ -64,7 +64,7 @@ Service-luokat käyttävät tietojen tallennukseen, muokkaukseen ja hakemiseen e
 
 Tietojen pysyväistallennuksesta vastaavat luokat (ja rajapinnat joiden kautta luokkia käytetään) löytyvät pakkauksesta _flashcardapp.dao_. Sovellus (ja nyt viikolla 7 myös kaikki testit) käyttää Hibernate-kirjastoa tietojen tallennukseen ja hakemiseen tietokannasta. 
 
-Dao-luokkien toteutus olisi periaatteessa vaihdettavissa johonkin toiseen. Tällöin jouduttaisiin varmaankin muokkaamaan myös Model-luokissa käytettyjä annotaatioita, jotka tällä hetkellä toimivat nimenomaan Hibernate-toteutuksen kanssa. 
+Dao-luokkien toteutus olisi periaatteessa vaihdettavissa johonkin toiseen. Tällöin saatettaisiin joutua muokkaamaan myös Model-luokissa käytettyjä annotaatioita, jotka tällä hetkellä toimivat nimenomaan Hibernate-toteutuksen kanssa. 
 
 Sovellus käyttää tällä hetkellä H2-tietokantaa tietojen tallentamiseen. Tietokannan vaihtaminen mihin tahansa Hibernate-kirjaston tukemaan tietokantaan onnistuu helposti konfiguraatiotiedostoja muokkaamalla.
 
