@@ -60,3 +60,13 @@ Avautuvassa näkymässä:
 - Jos haluat poistaa kortin, paina _Delete_.
 
 ![editkortti](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/Image%2028-04-2020%20at%2017.14.jpg)
+
+## Pakan opiskelu
+
+Kun olet yksittäisen pakan näkymässä, paina _Study deck_.
+
+![studydeck](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/UNADJUSTEDNONRAW_thumb_4e3.jpg)
+
+Aukeavassa näkymässä voit arpoa seuraavan kortin painamalla _Next card_. Vastaus on aluksi piilotettu, ja sen näyttäminen tapahtuu painamalla _Display answer_.
+
+![studydeckview](https://raw.githubusercontent.com/henrinikku/ot-harjoitustyo/master/dokumentointi/kaaviot/Image%2010-05-2020%20at%2018.15.jpg)
